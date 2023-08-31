@@ -1,0 +1,99 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "crb5e_samsleanix_pt_lookups",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "crb5e_samsleanix_pt_lookup",
+    "MaxGetRowsCount": 500,
+    "Name": "SAMS LeanIX_PT_LookUp",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "crb5e_ci_name": "CI_NAME",
+      "crb5e_dept_name": "DEPT_NAME",
+      "crb5e_name": "Name",
+      "crb5e_product_team": "PRODUCT_TEAM",
+      "crb5e_samsleanix_pt_lookup_AsyncOperations": "System Jobs",
+      "crb5e_samsleanix_pt_lookup_BulkDeleteFailures": "Bulk Delete Failures",
+      "crb5e_samsleanix_pt_lookup_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "crb5e_samsleanix_pt_lookup_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "crb5e_samsleanix_pt_lookup_ProcessSession": "Process Sessions",
+      "crb5e_samsleanix_pt_lookup_SyncErrors": "Sync Errors",
+      "crb5e_samsleanix_pt_lookupid": "AMS SLeanIX_PT_LookUp",
+      "crb5e_uniqueid": "UniqueID",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "SAMS LeanIX_PT_LookUp",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "SAMS LeanIX_PT_LookUp (Ansichten)",
+    "Name": "_crb5e_samsleanix_pt_lookup_views",
+    "RelatedEntityName": "SAMS LeanIX_PT_LookUp",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0732fd62-3d6f-4d58-bcf5-d17f0e44aec1": "AMS SLeanIX_PT_LookUp Lookup View",
+      "31bf975f-59ab-49d0-a23b-4fe93950bb12": "Inactive AMS SLeanIX_PT_LookUps",
+      "4a72231d-9731-4460-b239-1363736a4292": "AMS SLeanIX_PT_LookUp Advanced Find View",
+      "a2e978e1-5e52-4628-bf33-3b0ab9d0adca": "Active AMS SLeanIX_PT_LookUps",
+      "f8590b1c-aa03-4771-abc5-3d5fbecda0f7": "AMS SLeanIX_PT_LookUp Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (SAMS LeanIX_PT_LookUp)",
+    "Name": "crb5e_samsleanix_pt_lookup_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "SAMS LeanIX_PT_LookUp"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "SAMS LeanIX_PT_LookUp",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (SAMS LeanIX_PT_LookUp)",
+    "Name": "crb5e_samsleanix_pt_lookup_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "SAMS LeanIX_PT_LookUp"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "SAMS LeanIX_PT_LookUp",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,411 @@
+Screen_Admin As screen:
+    OnVisible: =Set(Open_Request_Filter, false); Set(LeanIX_View, false)
+
+    Rectangle1 As rectangle:
+        Fill: =RGBA(0, 53, 77, 1)
+        Height: =74
+        Width: =1366
+        ZIndex: =1
+
+    Label1_1 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        Size: =18
+        Text: ="Productteam Management"
+        Width: =350
+        X: =506
+        Y: =13
+        ZIndex: =2
+
+    Label1_6 As label:
+        Align: =Align.Right
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =52
+        Size: =15
+        Text: =User().FullName
+        Width: =262
+        X: =1028
+        Y: =12
+        ZIndex: =3
+
+    Image1_3 As image:
+        Height: =56
+        Image: ='user-filled-48 (3)'
+        Width: =50
+        X: =1302
+        Y: =6
+        ZIndex: =4
+
+    Dropdown_Productteam As dropdown:
+        BorderThickness: =1
+        ChevronBackground: =RGBA(255, 255, 255, 1)
+        ChevronFill: =RGBA(32, 96, 126, 1)
+        Items: |-
+            =With({dd_productteam : SortByColumns(Distinct('dwh_reporting V_Apps_Overviews_1', PRODUCT_TEAM), "Value")}, 
+            ForAll(Sequence(CountRows(dd_productteam)+1), {Value: If(Value = 1, "All", Last(FirstN(dd_productteam, Value-1)).Value)}
+            )
+            )
+            //Distinct(SAMS_lean_ix_mock; leanix_app_product_team)
+        Width: =400
+        X: =456
+        Y: =111
+        ZIndex: =5
+
+    Button2 As button:
+        BorderThickness: =0
+        Fill: =RGBA(32, 96, 126, 1)
+        HoverFill: =RGBA(0, 53, 77, 1)
+        OnSelect: |-
+            =ClearCollect(PT_data, Filter(SAMS_Berechtigungen_1, Item_Request = Dropdown_Productteam.Selected.Value && Not(Request_Status = "Revoked") && Not(Request_Status = "Declined"))) ;
+            ClearCollect(All_LeanIX_Apps, Filter('SAMS LeanIX_PT_LookUp', PRODUCT_TEAM = Dropdown_Productteam.Selected.Value)) ;
+            ClearCollect(LeanIX_Data, Filter(SAMS_Berechtigungen_1, Item_Type = "LeanIX App" && Item_Request in All_LeanIX_Apps[@CI_NAME]))
+        RadiusBottomLeft: =2
+        RadiusBottomRight: =2
+        RadiusTopLeft: =2
+        RadiusTopRight: =2
+        Size: =13
+        Text: ="Auswählen"
+        Width: =202
+        X: =933
+        Y: =111
+        ZIndex: =6
+
+    Label1 As label:
+        FontWeight: =FontWeight.Semibold
+        Size: =15
+        Text: |-
+            ="Bitte wählen Sie Ihr Produktteam aus:"
+        Width: =422
+        X: =36
+        Y: =111
+        ZIndex: =7
+
+    Button2_1 As button:
+        Align: =Align.Left
+        BorderThickness: =0
+        Fill: =RGBA(32, 96, 126, 1)
+        HoverFill: =RGBA(0, 53, 77, 1)
+        OnSelect: =Set(Open_Request_Filter, false)
+        PaddingLeft: =38
+        Size: =13
+        Text: ="Alle Berechtigungen"
+        Width: =215
+        X: =36
+        Y: =181
+        ZIndex: =8
+
+    Button2_2 As button:
+        Align: =Align.Left
+        BorderThickness: =0
+        Fill: =RGBA(32, 96, 126, 1)
+        HoverFill: =RGBA(0, 53, 77, 1)
+        OnSelect: =Set(Open_Request_Filter, true)
+        PaddingLeft: =38
+        Size: =13
+        Text: ="Offene Anfragen"
+        Width: =215
+        X: =271
+        Y: =181
+        ZIndex: =9
+
+    Container1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =440
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =1254
+        X: =36
+        Y: =252
+        ZIndex: =10
+
+        Spaltennamen As groupContainer.manualLayoutContainer:
+            FillPortions: =0
+            Height: =40
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            Title_Name As label:
+                FontWeight: =FontWeight.Bold
+                Text: ="Name des/der Berechtigten"
+                Width: =600
+                ZIndex: =1
+
+            Title_Recht As label:
+                FontWeight: =FontWeight.Bold
+                Text: ="Berechtigung"
+                Width: =200
+                X: =Title_Name.Width
+                ZIndex: =2
+
+            Title_Status As label:
+                FontWeight: =FontWeight.Bold
+                Text: ="Status"
+                X: =Title_Recht.X + Title_Recht.Width
+                ZIndex: =3
+
+        Gallery3 As gallery.galleryVertical:
+            DelayItemLoading: =true
+            Height: =380
+            Items: =If(Open_Request_Filter, Filter(PT_data, Request_Status = "Requested"), PT_data)
+            Layout: =Layout.Vertical
+            LayoutMinHeight: =50
+            LayoutMinWidth: =320
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(40, Self.Height - 60))
+            ZIndex: =2
+
+            Label_Recht As label:
+                OnSelect: =Select(Parent)
+                Text: =ThisItem.User_Role
+                Width: =Title_Recht.Width
+                X: =Title_Recht.X
+                ZIndex: =1
+
+            Label_Name As label:
+                OnSelect: =Select(Parent)
+                Text: =ThisItem.Name
+                Width: =Title_Name.Width
+                X: =Title_Name.X
+                ZIndex: =2
+
+            Label_Status As label:
+                OnSelect: =Select(Parent)
+                Text: =ThisItem.Request_Status
+                Width: =Title_Status.Width
+                X: =Title_Status.X
+                ZIndex: =3
+
+            Image_Revoke As image:
+                BorderColor: =RGBA(255, 0, 0, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =40
+                Image: ='circle-close-filled-16'
+                OnSelect: |-
+                    =UpdateIf(SAMS_Berechtigungen_1, Item_Request = Dropdown_Productteam.SelectedText.Value && Name_Request = ThisItem.Name_Request, {Item_Request:ThisItem.Item_Request, Name_Request:ThisItem.Name_Request, Request_Status:"Revoked"})
+                PaddingBottom: =3
+                PaddingLeft: =3
+                PaddingRight: =3
+                PaddingTop: =3
+                Tooltip: ="Revoke Access"
+                Visible: =If(ThisItem.Request_Status = "Requested", false, true)
+                Width: =50
+                X: =Image_Decline.X + Image_Decline.Width
+                ZIndex: =4
+
+            Image_Accept As image:
+                Fill: =RGBA(232, 244, 217, 1)
+                Height: =40
+                Image: ='check-16'
+                OnSelect: |-
+                    =UpdateIf(SAMS_Berechtigungen_1, Item_Request = Dropdown_Productteam.SelectedText.Value && Name = ThisItem.Name, {Item_Request:ThisItem.Item_Request, Name:ThisItem.Name, Request_Status:"Accepted"});
+                    UpdateIf(PT_data, Item_Request = Dropdown_Productteam.SelectedText.Value && Name = ThisItem.Name, {Item_Request:ThisItem.Item_Request, Name:ThisItem.Name, Request_Status:"Accepted"})
+                Tooltip: ="Anfrage akzeptieren"
+                Visible: =If(ThisItem.Request_Status = "Requested", true, false)
+                Width: =40
+                X: =Label_Status.X + Label_Status.Width
+                ZIndex: =5
+
+            Image_Decline As image:
+                Fill: =RGBA(253, 222, 207, 1)
+                Height: =40
+                Image: ='close-16'
+                OnSelect: |-
+                    =UpdateIf(SAMS_Berechtigungen_1, Item_Request = Dropdown_Productteam.SelectedText.Value && Name_Request = ThisItem.Name_Request, {Item_Request:ThisItem.Item_Request, Name_Request:ThisItem.Name_Request, Request_Status:"Declined"});
+                    UpdateIf(PT_data, Item_Request = Dropdown_Productteam.SelectedText.Value && Name_Request = ThisItem.Name_Request, {Item_Request:ThisItem.Item_Request, Name_Request:ThisItem.Name_Request, Request_Status:"Declined"})
+                Tooltip: ="Anfrage ablehnen oder Zugang verweigern"
+                Visible: =If(ThisItem.Request_Status = "Requested", true, false)
+                Width: =40
+                X: =Image_Accept.X + Image_Accept.Width + 5
+                ZIndex: =6
+
+    Button2_3 As button:
+        BorderThickness: =0
+        Fill: =RGBA(32, 96, 126, 1)
+        HoverFill: =RGBA(0, 53, 77, 1)
+        OnSelect: =Set(LeanIX_View, true)
+        Size: =13
+        Text: ="LeanIX View"
+        Width: =202
+        X: =1058
+        Y: =181
+        ZIndex: =11
+
+    Image6 As image:
+        Height: =40
+        Image: ='filter-24 (1)'
+        PaddingBottom: =1
+        PaddingLeft: =1
+        PaddingRight: =1
+        PaddingTop: =1
+        Width: =40
+        X: =36
+        Y: =181
+        ZIndex: =16
+
+    Group2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =16
+
+        Rectangle6 As rectangle:
+            BorderColor: =RGBA(0, 53, 77, 1)
+            BorderThickness: =2
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =554
+            Visible: =LeanIX_View
+            Width: =1310
+            X: =22
+            Y: =181
+            ZIndex: =12
+
+        Container_LeanIX_Data As groupContainer.verticalAutoLayoutContainer:
+            Height: =440
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Visible: =LeanIX_View
+            Width: =1254
+            X: =54
+            Y: =278
+            ZIndex: =13
+
+            Spaltennamen_1 As groupContainer.manualLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                FillPortions: =0
+                Height: =40
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =1254
+                ZIndex: =1
+
+                Title_Name_1 As label:
+                    FontWeight: =FontWeight.Bold
+                    Text: ="Name des/der Berechtigten"
+                    Width: =400
+                    X: =Title_App.X + Title_App.Width
+                    ZIndex: =1
+
+                Title_Recht_1 As label:
+                    FontWeight: =FontWeight.Bold
+                    Text: ="Berechtigung"
+                    Width: =200
+                    X: =Title_Name_1.Width + Title_Name_1.X
+                    ZIndex: =2
+
+                Title_Status_1 As label:
+                    FontWeight: =FontWeight.Bold
+                    Text: ="Status"
+                    X: =Title_Recht_1.X + Title_Recht_1.Width
+                    ZIndex: =3
+
+                Title_App As label:
+                    FontWeight: =FontWeight.Bold
+                    Text: ="Applikation"
+                    Width: =200
+                    ZIndex: =4
+
+            Gallery5 As gallery.galleryVertical:
+                DelayItemLoading: =true
+                Items: =LeanIX_Data
+                Layout: =Layout.Vertical
+                LayoutMinHeight: =287
+                LayoutMinWidth: =320
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(40, Self.Height - 60))
+                ZIndex: =2
+
+                Label_App_LeanIX As label:
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.Item_Request
+                    Width: =Title_App.Width
+                    ZIndex: =1
+
+                Label_Name_LeanIX As label:
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.Name_Request
+                    Width: =Title_Name_1.Width
+                    X: =Label_App_LeanIX.Width
+                    ZIndex: =2
+
+                Label_Recht_LeanIX As label:
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.User_Role
+                    Width: =Title_Recht_1.Width
+                    X: =Label_Name_LeanIX.X + Label_Name_LeanIX.Width
+                    ZIndex: =3
+
+                Label_Status_LeanIX As label:
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.Request_Status
+                    Width: =Title_Status_1.Width
+                    X: =Label_Recht_LeanIX.Width + Label_Recht_LeanIX.X
+                    ZIndex: =4
+
+                Image_Accept_LeanIX As image:
+                    Fill: =RGBA(232, 244, 217, 1)
+                    Height: =40
+                    Image: ='check-16'
+                    OnSelect: |-
+                        =UpdateIf(SAMS_Berechtigungen_1, Item_Request = ThisItem.Item_Request && Name_Request = ThisItem.Name_Request, {Item_Request:ThisItem.Item_Request, Name_Request:ThisItem.Name_Request, Request_Status:"Accepted"})
+                    Tooltip: ="Anfrage akzeptieren"
+                    Visible: =If(ThisItem.Request_Status = "Requested", true, false)
+                    Width: =40
+                    X: =Label_Status_LeanIX.X + Label_Status_LeanIX.Width
+                    ZIndex: =5
+
+                Image_Decline_LeanIX As image:
+                    Fill: =RGBA(253, 222, 207, 1)
+                    Height: =40
+                    Image: ='close-16'
+                    OnSelect: |-
+                        =UpdateIf(SAMS_Berechtigungen_1, Item_Request = ThisItem.Item_Request && Name_Request = ThisItem.Name_Request, {Item_Request:ThisItem.Item_Request, Name_Request:ThisItem.Name_Request, Request_Status:"Declined"})
+                    Tooltip: ="Anfrage ablehnen oder Zugang verweigern"
+                    Visible: =If(ThisItem.Request_Status = "Requested", true, false)
+                    Width: =40
+                    X: =Image_Accept_LeanIX.X + Image_Accept_LeanIX.Width + 5
+                    ZIndex: =6
+
+                Image_Revoke_LeanIX As image:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =40
+                    Image: ='circle-close-filled-16'
+                    OnSelect: |-
+                        =UpdateIf(SAMS_Berechtigungen_1, Item_Request = ThisItem.Item_Request && Name_Request = ThisItem.Name_Request, {Item_Request:ThisItem.Item_Request, Name_Request:ThisItem.Name_Request, Request_Status:"Declined"})
+                    Width: =40
+                    X: =Image_Decline_LeanIX.X + Image_Decline_LeanIX.Width + 5
+                    ZIndex: =7
+
+        Label2 As label:
+            FontWeight: =FontWeight.Bold
+            Size: =15
+            Text: ="LeanIX Applikationen des gewählten Produktteams"
+            Visible: =LeanIX_View
+            Width: =648
+            X: =50
+            Y: =212
+            ZIndex: =14
+
+        Image1 As image:
+            Height: =46
+            Image: ='close-16'
+            OnSelect: =Set(LeanIX_View, false)
+            Visible: =LeanIX_View
+            Width: =58
+            X: =1274
+            Y: =182
+            ZIndex: =15
+
+    Image6_1 As image:
+        Height: =40
+        Image: ='filter-24 (1)'
+        PaddingBottom: =1
+        PaddingLeft: =1
+        PaddingRight: =1
+        PaddingTop: =1
+        Width: =40
+        X: =271
+        Y: =181
+        ZIndex: =17
+
