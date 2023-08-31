@@ -1,0 +1,24 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =// ClearCollect(leanix_choices; {Result:"All"}; Distinct(SAMS_lean_ix_mock; leanix_app_leanixid) 
+        ClearCollect(SelectedSB,
+        PowerBIIntegration.Data);
+        ClearCollect(FilterSB, 
+        Filter('dwh_reporting V_Nessus_ITGZs', UniqueID in PowerBIIntegration.Data.UniqueID));
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+
+    PowerBIIntegration As hostControl.DynamicHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

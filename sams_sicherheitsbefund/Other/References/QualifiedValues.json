@@ -1,0 +1,74 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_crb5e_dwh_reportingv_apps_overview_forms",
+      "Namespace": "dwh_reporting V_Apps_Overviews_1 (Formulare)",
+      "Values": {
+        "Information": "790273c8-4f67-4c31-a2e9-dc147b57691b"
+      }
+    },
+    {
+      "Kind": "default.cds_crb5e_dwh_reportingv_nessus_itgz_forms",
+      "Namespace": "dwh_reporting V_Nessus_ITGZs (Formulare)",
+      "Values": {
+        "Information": "002f4907-10d4-47a2-89d7-f9174bec5460"
+      }
+    },
+    {
+      "Kind": "default.cds_cr983_dwh_reportingv_apps_overview_3_forms",
+      "Namespace": "dwh_reporting V_Apps_Overviews (Formulare)",
+      "Values": {
+        "Information": "bb92b4a1-b259-4de9-b666-a6aa0620a370"
+      }
+    },
+    {
+      "Kind": "default.cds_cr983_dwh_reportingv_nessus_itgz_4_forms",
+      "Namespace": "dwh_reporting V_Nessus_ITGZ (Formulare)",
+      "Values": {
+        "Information": "9b0fbfbf-e6a2-4494-b617-9b8508aa81c0"
+      }
+    },
+    {
+      "Kind": "default.cds_cr983_sams_aenderungen_forms",
+      "Namespace": "SAMS_Aenderungen (Formulare)",
+      "Values": {
+        "Information": "4dc3fec9-aa87-4ae5-8f66-a02757c37999"
+      }
+    },
+    {
+      "Kind": "default.cds_cr983_lean_ix_mock_forms",
+      "Namespace": "SAMS_lean_ix_mock (Formulare)",
+      "Values": {
+        "Information": "2fc9de01-4b35-4f70-9b22-55f302c4a63b"
+      }
+    },
+    {
+      "Kind": "default.cds_cr983_sams_vulnerabilities_forms",
+      "Namespace": "SAMS_Sicherheitsbefunde (Formulare)",
+      "Values": {
+        "Information": "82425fb6-3b5d-4312-9506-da96260cf307"
+      }
+    },
+    {
+      "Kind": "default.cds_cr983_dwh_reportingv_nessus_itgz_2_forms",
+      "Namespace": "dwh_reporting V_Nessus_ITGZs (Formulare)1",
+      "Values": {
+        "Information": "ad276eec-dce4-4d8f-bdfe-fd7fa3f05faf"
+      }
+    },
+    {
+      "Kind": "default.cds_cr983_dwh_reportingv_nessus_itgz_forms",
+      "Namespace": "cr983_dwh_reportingV_Nessus_ITGZs (Formulare)",
+      "Values": {
+        "Information": "e94e697f-131b-407f-9905-842c22f04a91"
+      }
+    },
+    {
+      "Kind": "default.cds_crb5e_dwh_reportingv_nessus_itgz_forms",
+      "Namespace": "dwh_reporting V_Nessus_ITGZs (Formulare)11",
+      "Values": {
+        "Information": "b95233c6-7122-432b-be28-d2e989e75e97"
+      }
+    }
+  ]
+}
