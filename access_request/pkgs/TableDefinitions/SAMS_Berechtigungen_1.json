@@ -1,7 +1,7 @@
 {
   "DatasetName": "default.cds",
   "EntityName": "SAMS_Berechtigungen_1",
-  "InstanceUrl": "https://org9334fbce.crm4.dynamics.com/",
+  "InstanceUrl": "https://org22cc13b4.crm4.dynamics.com/",
   "LocalReferenceDSJson": {
     "entitySetName": "crb5e_samsberechtigungens",
     "logicalName": "crb5e_samsberechtigungen"
