@@ -5,7 +5,7 @@ Screen1_1 As screen:
         ClearCollect(SelectedSB,
         PowerBIIntegration.Data);
         ClearCollect(FilterSB, 
-        Filter('dwh_reporting V_Nessus_ITGZs', uniqueid in PowerBIIntegration.Data.uniqueid));
+        Filter('dwh_reporting V_Nessus_ITGZs', uniqueid in PowerBIIntegration.Data.UniqueID));
 
     Rectangle1_1 As rectangle:
         Fill: =RGBA(0, 53, 77, 1)

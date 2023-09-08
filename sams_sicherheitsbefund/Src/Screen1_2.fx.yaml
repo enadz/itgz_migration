@@ -153,10 +153,10 @@ Screen1_2 As screen:
                 Set(Schweregrad_Begruend, true),
                 ForAll(SelectedSB, UpdateIf('dwh_reporting V_Nessus_ITGZs', uniqueid = uniqueid,
                 {uniqueid:uniqueid, 
-                Severity_edited:If(Checkbox_Schweregrad.Value, severity, If(IsBlank(Dropdown_kontextSeverity.Selected.Value), Severity_edited, Dropdown_kontextSeverity.Selected.Value)),
-                Responsibility_edited:If(IsBlank(Dropdown_Responsibility.Selected.Value), Responsibility_edited, Dropdown_Responsibility.Selected.Value), 
+                severity_edited:If(Checkbox_Schweregrad.Value, severity, If(IsBlank(Dropdown_kontextSeverity.Selected.Value), severity_edited, Dropdown_kontextSeverity.Selected.Value)),
+                responsibility_edited:If(IsBlank(Dropdown_Responsibility.Selected.Value), responsibility_edited, Dropdown_Responsibility.Selected.Value), 
                 justification:If(Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe"), justification, TextInput_Responsible.Text), 
-                Irma_ID:If(Or(IsBlank(TextInput_IRMA.Text),TextInput_IRMA.Text = "Texteingabe"), Irma_ID, TextInput_IRMA.Text), 
+                irma_id:If(Or(IsBlank(TextInput_IRMA.Text),TextInput_IRMA.Text = "Texteingabe"), irma_id, TextInput_IRMA.Text), 
                 risk:If(IsBlank(Dropdown_Risiko.Selected.Value), risk,Dropdown_Risiko.Selected.Value), 
                 remediated:If(IsBlank(Dropdown_Rem.Selected.Value), remediated, Dropdown_Rem.Selected.Value)})
                 ));
@@ -228,10 +228,10 @@ Screen1_2 As screen:
                 Set(Schweregrad_Begruend, true),
                 (ForAll(SelectedSB, UpdateIf('dwh_reporting V_Nessus_ITGZs', uniqueid = uniqueid,
                 {uniqueid:uniqueid, 
-                Severity_edited:If(Checkbox_Schweregrad.Value, severity, If(IsBlank(Dropdown_kontextSeverity.Selected.Value), Severity_edited, Dropdown_kontextSeverity.Selected.Value)),
-                Responsibility_edited:If(IsBlank(Dropdown_Responsibility.Selected.Value), Responsibility_edited, Dropdown_Responsibility.Selected.Value), 
+                severity_edited:If(Checkbox_Schweregrad.Value, severity, If(IsBlank(Dropdown_kontextSeverity.Selected.Value), severity_edited, Dropdown_kontextSeverity.Selected.Value)),
+                responsibility_edited:If(IsBlank(Dropdown_Responsibility.Selected.Value), responsibility_edited, Dropdown_Responsibility.Selected.Value), 
                 justification:If(Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe"), justification, TextInput_Responsible.Text), 
-                Irma_ID:If(Or(IsBlank(TextInput_IRMA.Text),TextInput_IRMA.Text = "Texteingabe"), Irma_ID, TextInput_IRMA.Text), 
+                irma_id:If(Or(IsBlank(TextInput_IRMA.Text),TextInput_IRMA.Text = "Texteingabe"), irma_id, TextInput_IRMA.Text), 
                 risk:If(IsBlank(Dropdown_Risiko.Selected.Value), risk,Dropdown_Risiko.Selected.Value), 
                 remediated:If(IsBlank(Dropdown_Rem.Selected.Value), remediated, Dropdown_Rem.Selected.Value)}))));
                 If(And(Not(IsBlank(Dropdown_kontextSeverity.Selected.Value)),Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe")), 
