@@ -5,7 +5,7 @@ Screen1_1 As screen:
         ClearCollect(SelectedSB,
         PowerBIIntegration.Data);
         ClearCollect(FilterSB, 
-        Filter('dwh_reporting V_Nessus_ITGZs', UniqueID in PowerBIIntegration.Data.UniqueID));
+        Filter('dwh_reporting V_Nessus_ITGZs', uniqueid in PowerBIIntegration.Data.uniqueid));
 
     Rectangle1_1 As rectangle:
         Fill: =RGBA(0, 53, 77, 1)
@@ -155,15 +155,15 @@ Screen1_1 As screen:
                 =If(Label4.Text = "true", false,
                 If(And(Not(IsBlank(Dropdown2_1.Selected.Value)),Or(IsBlank(TextInput1_1.Text),TextInput1_1.Text = "Insert Text")), 
                 Set(Schweregrad_Begruend, true),
-                ForAll(SelectedSB, UpdateIf(FilterSB, UniqueID = UniqueID,
-                {UniqueID:UniqueID, 
-                Severity_edited:If(Checkbox_Schweregrad.Value, Severity, If(IsBlank(Dropdown_kontextSeverity.Selected.Value), Severity_edited, Dropdown_kontextSeverity.Selected.Value)),
-                Responsibility_edited:If(IsBlank(Dropdown_Responsibility.Selected.Value), Responsibility_edited, Dropdown_Responsibility.Selected.Value), 
-                Justification:If(Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Insert Text"), Justification, TextInput_Responsible.Text), 
-                Irma_ID:If(Or(IsBlank(TextInput_IRMA.Text),TextInput_IRMA.Text = "Insert Text"), Irma_ID, TextInput_IRMA.Text), 
-                Risk:If(IsBlank(Dropdown_Risiko.Selected.Value), Risk,Dropdown_Risiko.Selected.Value), 
-                Remediated:If(IsBlank(Dropdown_Rem.Selected.Value), Remediated, Dropdown_Rem.Selected.Value),
-                Date_edited: Today()})
+                ForAll(SelectedSB, UpdateIf(FilterSB, uniqueid = uniqueid,
+                {uniqueid:uniqueid, 
+                crb5e_severityedited:If(Checkbox_Schweregrad.Value, severity, If(IsBlank(Dropdown_kontextSeverity.Selected.Value), crb5e_severityedited, Dropdown_kontextSeverity.Selected.Value)),
+                crb5e_responsibilityedited:If(IsBlank(Dropdown_Responsibility.Selected.Value), crb5e_responsibilityedited, Dropdown_Responsibility.Selected.Value), 
+                justification:If(Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Insert Text"), justification, TextInput_Responsible.Text), 
+                crb5e_irmaid:If(Or(IsBlank(TextInput_IRMA.Text),TextInput_IRMA.Text = "Insert Text"), crb5e_irmaid, TextInput_IRMA.Text), 
+                risk:If(IsBlank(Dropdown_Risiko.Selected.Value), risk,Dropdown_Risiko.Selected.Value), 
+                remediated:If(IsBlank(Dropdown_Rem.Selected.Value), remediated, Dropdown_Rem.Selected.Value),
+                crb5e_dateedited: Today()})
                 ))
                 ;
                 If(And(Not(IsBlank(Dropdown_kontextSeverity.Selected.Value)),Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Insert Text")), 
@@ -234,20 +234,27 @@ Screen1_1 As screen:
             Height: =51
             Image: ='save-16'
             OnSelect: |-
-                =If(And(Not(IsBlank(Dropdown_kontextSeverity.Selected.Value)),Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe")), 
+                =If(Label4.Text = "true", false,
+                If(And(Not(IsBlank(Dropdown2_1.Selected.Value)),Or(IsBlank(TextInput1_1.Text),TextInput1_1.Text = "Insert Text")), 
                 Set(Schweregrad_Begruend, true),
-                (ForAll(SelectedSB, UpdateIf('dwh_reporting V_Nessus_ITGZs', UniqueID = UniqueID,
-                {UniqueID:UniqueID, 
-                Severity_edited:If(Checkbox_Schweregrad.Value, Severity, If(IsBlank(Dropdown_kontextSeverity.Selected.Value), Severity_edited, Dropdown_kontextSeverity.Selected.Value)),
-                Responsibility_edited:If(IsBlank(Dropdown_Responsibility.Selected.Value), Responsibility_edited, Dropdown_Responsibility.Selected.Value), 
-                Justification:If(Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe"), Justification, TextInput_Responsible.Text), 
-                Irma_ID:If(Or(IsBlank(TextInput_IRMA.Text),TextInput_IRMA.Text = "Texteingabe"), Irma_ID, TextInput_IRMA.Text), 
-                Risk:If(IsBlank(Dropdown_Risiko.Selected.Value), Risk,Dropdown_Risiko.Selected.Value), 
-                Remediated:If(IsBlank(Dropdown_Rem.Selected.Value), Remediated, Dropdown_Rem.Selected.Value)}))));
-                If(And(Not(IsBlank(Dropdown_kontextSeverity.Selected.Value)),Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe")), 
+                ForAll(SelectedSB, UpdateIf(FilterSB, uniqueid = uniqueid,
+                {uniqueid:uniqueid, 
+                crb5e_severityedited:If(Checkbox_Schweregrad.Value, severity, If(IsBlank(Dropdown_kontextSeverity.Selected.Value), crb5e_severityedited, Dropdown_kontextSeverity.Selected.Value)),
+                crb5e_responsibilityedited:If(IsBlank(Dropdown_Responsibility.Selected.Value), crb5e_responsibilityedited, Dropdown_Responsibility.Selected.Value), 
+                justification:If(Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Insert Text"), justification, TextInput_Responsible.Text), 
+                crb5e_irmaid:If(Or(IsBlank(TextInput_IRMA.Text),TextInput_IRMA.Text = "Insert Text"), crb5e_irmaid, TextInput_IRMA.Text), 
+                risk:If(IsBlank(Dropdown_Risiko.Selected.Value), risk,Dropdown_Risiko.Selected.Value), 
+                remediated:If(IsBlank(Dropdown_Rem.Selected.Value), remediated, Dropdown_Rem.Selected.Value),
+                crb5e_dateedited: Today()})
+                ))
+                ;
+                If(And(Not(IsBlank(Dropdown_kontextSeverity.Selected.Value)),Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Insert Text")), 
+                false, Patch('dwh_reporting V_Nessus_ITGZs', FilterSB)) ;
+                If(And(Not(IsBlank(Dropdown_kontextSeverity.Selected.Value)),Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Insert Text")), 
                 Set(Bearb_Form_Vis, true), Set(Save_Form_Vis, true)) ;
-                If(And(Not(IsBlank(Dropdown_kontextSeverity.Selected.Value)),Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe")), 
+                If(And(Not(IsBlank(Dropdown_kontextSeverity.Selected.Value)),Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Insert Text")), 
                 Set(Schweregrad_Begruend, true), Set(Schweregrad_Begruend, false))
+                )
             PaddingBottom: =3
             PaddingLeft: =3
             PaddingRight: =3

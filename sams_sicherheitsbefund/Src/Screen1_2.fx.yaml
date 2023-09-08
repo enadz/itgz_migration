@@ -151,14 +151,14 @@ Screen1_2 As screen:
             OnSelect: |-
                 =If(And(Not(IsBlank(Dropdown2_1.Selected.Value)),Or(IsBlank(TextInput1_1.Text),TextInput1_1.Text = "Texteingabe")), 
                 Set(Schweregrad_Begruend, true),
-                ForAll(SelectedSB, UpdateIf('dwh_reporting V_Nessus_ITGZs', UniqueID = UniqueID,
-                {UniqueID:UniqueID, 
-                Severity_edited:If(Checkbox_Schweregrad.Value, Severity, If(IsBlank(Dropdown_kontextSeverity.Selected.Value), Severity_edited, Dropdown_kontextSeverity.Selected.Value)),
+                ForAll(SelectedSB, UpdateIf('dwh_reporting V_Nessus_ITGZs', uniqueid = uniqueid,
+                {uniqueid:uniqueid, 
+                Severity_edited:If(Checkbox_Schweregrad.Value, severity, If(IsBlank(Dropdown_kontextSeverity.Selected.Value), Severity_edited, Dropdown_kontextSeverity.Selected.Value)),
                 Responsibility_edited:If(IsBlank(Dropdown_Responsibility.Selected.Value), Responsibility_edited, Dropdown_Responsibility.Selected.Value), 
-                Justification:If(Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe"), Justification, TextInput_Responsible.Text), 
+                justification:If(Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe"), justification, TextInput_Responsible.Text), 
                 Irma_ID:If(Or(IsBlank(TextInput_IRMA.Text),TextInput_IRMA.Text = "Texteingabe"), Irma_ID, TextInput_IRMA.Text), 
-                Risk:If(IsBlank(Dropdown_Risiko.Selected.Value), Risk,Dropdown_Risiko.Selected.Value), 
-                Remediated:If(IsBlank(Dropdown_Rem.Selected.Value), Remediated, Dropdown_Rem.Selected.Value)})
+                risk:If(IsBlank(Dropdown_Risiko.Selected.Value), risk,Dropdown_Risiko.Selected.Value), 
+                remediated:If(IsBlank(Dropdown_Rem.Selected.Value), remediated, Dropdown_Rem.Selected.Value)})
                 ));
                 
                 If(And(Not(IsBlank(Dropdown_kontextSeverity.Selected.Value)),Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe")), 
@@ -226,14 +226,14 @@ Screen1_2 As screen:
             OnSelect: |-
                 =If(And(Not(IsBlank(Dropdown2_1.Selected.Value)),Or(IsBlank(TextInput1_1.Text),TextInput1_1.Text = "Texteingabe")), 
                 Set(Schweregrad_Begruend, true),
-                (ForAll(SelectedSB, UpdateIf('dwh_reporting V_Nessus_ITGZs', UniqueID = UniqueID,
-                {UniqueID:UniqueID, 
-                Severity_edited:If(Checkbox_Schweregrad.Value, Severity, If(IsBlank(Dropdown_kontextSeverity.Selected.Value), Severity_edited, Dropdown_kontextSeverity.Selected.Value)),
+                (ForAll(SelectedSB, UpdateIf('dwh_reporting V_Nessus_ITGZs', uniqueid = uniqueid,
+                {uniqueid:uniqueid, 
+                Severity_edited:If(Checkbox_Schweregrad.Value, severity, If(IsBlank(Dropdown_kontextSeverity.Selected.Value), Severity_edited, Dropdown_kontextSeverity.Selected.Value)),
                 Responsibility_edited:If(IsBlank(Dropdown_Responsibility.Selected.Value), Responsibility_edited, Dropdown_Responsibility.Selected.Value), 
-                Justification:If(Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe"), Justification, TextInput_Responsible.Text), 
+                justification:If(Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe"), justification, TextInput_Responsible.Text), 
                 Irma_ID:If(Or(IsBlank(TextInput_IRMA.Text),TextInput_IRMA.Text = "Texteingabe"), Irma_ID, TextInput_IRMA.Text), 
-                Risk:If(IsBlank(Dropdown_Risiko.Selected.Value), Risk,Dropdown_Risiko.Selected.Value), 
-                Remediated:If(IsBlank(Dropdown_Rem.Selected.Value), Remediated, Dropdown_Rem.Selected.Value)}))));
+                risk:If(IsBlank(Dropdown_Risiko.Selected.Value), risk,Dropdown_Risiko.Selected.Value), 
+                remediated:If(IsBlank(Dropdown_Rem.Selected.Value), remediated, Dropdown_Rem.Selected.Value)}))));
                 If(And(Not(IsBlank(Dropdown_kontextSeverity.Selected.Value)),Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe")), 
                 Set(Bearb_Form_Vis, true), Set(Save_Form_Vis, true)) ;
                 If(And(Not(IsBlank(Dropdown_kontextSeverity.Selected.Value)),Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe")), 

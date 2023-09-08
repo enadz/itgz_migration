@@ -5,7 +5,7 @@ App As appinfo:
         ClearCollect(SelectedSB,
         PowerBIIntegration.Data);
         ClearCollect(FilterSB, 
-        Filter('dwh_reporting V_Nessus_ITGZs', UniqueID in PowerBIIntegration.Data.UniqueID));
+        Filter('dwh_reporting V_Nessus_ITGZs', uniqueid in PowerBIIntegration.Data.UniqueID));
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:

@@ -117,7 +117,7 @@ Screen2 As screen:
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Text: =ThisItem.UniqueID
+            Text: =ThisItem.uniqueid
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 173
             X: =103
@@ -132,7 +132,7 @@ Screen2 As screen:
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Text: =ThisItem.Date_edited
+            Text: =ThisItem.crb5e_date_edited
             VerticalAlign: =VerticalAlign.Top
             Width: =Title1_1.Width
             X: =Title1_1.X
