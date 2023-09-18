@@ -1,0 +1,103 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "crb5e_samsberechtigungens",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "crb5e_samsberechtigungen",
+    "MaxGetRowsCount": 2000,
+    "Name": "SAMS_Berechtigungen_1",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "crb5e_application": "Application",
+      "crb5e_item_request": "Item_Request",
+      "crb5e_item_type": "Item_Type",
+      "crb5e_name": "Name",
+      "crb5e_name_request": "Name_Request",
+      "crb5e_request_date": "Request_Date",
+      "crb5e_request_status": "Request_Status",
+      "crb5e_samsberechtigungen_AsyncOperations": "System Jobs",
+      "crb5e_samsberechtigungen_BulkDeleteFailures": "Bulk Delete Failures",
+      "crb5e_samsberechtigungen_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "crb5e_samsberechtigungen_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "crb5e_samsberechtigungen_ProcessSession": "Process Sessions",
+      "crb5e_samsberechtigungen_SyncErrors": "Sync Errors",
+      "crb5e_samsberechtigungenid": "samsberechtigungen",
+      "crb5e_user_role": "User_Role",
+      "crb5e_vw_userid": "VW_UserID",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "SAMS_Berechtigungen_1",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "SAMS_Berechtigungen_1 (Ansichten)",
+    "Name": "_crb5e_samsberechtigungen_views",
+    "RelatedEntityName": "SAMS_Berechtigungen_1",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "6791187d-1862-47e3-bfba-e9b860e6b02a": "Inactive samsberechtigungens",
+      "6ab774e7-8579-4db4-bb34-93845c499827": "samsberechtigungen Lookup View",
+      "6b4ca193-bfc5-47f2-8f1e-73be0154974a": "samsberechtigungen Advanced Find View",
+      "b83e1a73-5032-4655-8197-ad6fbc2aa810": "Active samsberechtigungens",
+      "bf359f32-a667-4911-911f-67bb14c3fd7e": "samsberechtigungen Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (SAMS_Berechtigungen_1)",
+    "Name": "crb5e_samsberechtigungen_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "SAMS_Berechtigungen_1"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "SAMS_Berechtigungen_1",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (SAMS_Berechtigungen_1)",
+    "Name": "crb5e_samsberechtigungen_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "SAMS_Berechtigungen_1"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "SAMS_Berechtigungen_1",
+    "Type": "OptionSetInfo"
+  }
+]

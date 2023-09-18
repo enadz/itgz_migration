@@ -1,0 +1,136 @@
+Screen_Homepage As screen:
+
+    Rectangle2 As rectangle:
+        Fill: =RGBA(223, 226, 230, 1)
+        Height: =108
+        Width: =281
+        X: =68
+        Y: =200
+        ZIndex: =1
+
+    Rectangle1_2 As rectangle:
+        Fill: =RGBA(0, 53, 77, 1)
+        Height: =74
+        Width: =1366
+        ZIndex: =2
+
+    Label1_4 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =56
+        Size: =18
+        Text: ="AM Reporting Platform - Access Requests"
+        Width: =534
+        X: =416
+        Y: =8
+        ZIndex: =3
+
+    Label1_8 As label:
+        Align: =Align.Right
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =52
+        Size: =15
+        Text: =User().FullName
+        Width: =262
+        X: =1028
+        Y: =12
+        ZIndex: =4
+
+    Image1_5 As image:
+        Height: =56
+        Image: ='user-filled-48 (3)'
+        Width: =50
+        X: =1302
+        Y: =9
+        ZIndex: =5
+
+    Label3_1 As label:
+        DisabledColor: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =46
+        Size: =16
+        Text: ="SAMS Applikation"
+        Width: =248
+        X: =85
+        Y: =218
+        ZIndex: =6
+
+    Icon1_1 As icon.ArrowRight:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =34
+        Icon: =Icon.ArrowRight
+        OnSelect: =Navigate(Screen_SAMS_Request)
+        Width: =40
+        X: =293
+        Y: =264
+        ZIndex: =7
+
+    Label4_1 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Size: =18
+        Text: ="Verfügbare Applikationen"
+        Width: =330
+        X: =518
+        Y: =112
+        ZIndex: =8
+
+    Rectangle2_1 As rectangle:
+        Fill: =RGBA(223, 226, 230, 1)
+        Height: =108
+        Width: =281
+        X: =436
+        Y: =200
+        ZIndex: =9
+
+    Label3_2 As label:
+        DisabledColor: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =46
+        Size: =16
+        Text: ="BIA-IT"
+        Width: =248
+        X: =453
+        Y: =218
+        ZIndex: =10
+
+    Icon1_2 As icon.ArrowRight:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =34
+        Icon: =Icon.ArrowRight
+        OnSelect: =Navigate(Screen_SAMS_Request)
+        Width: =40
+        X: =661
+        Y: =264
+        ZIndex: =11
+
+    Rectangle2_2 As rectangle:
+        Fill: =RGBA(223, 226, 230, 1)
+        Height: =108
+        Width: =281
+        X: =793
+        Y: =200
+        ZIndex: =12
+
+    Label3_3 As label:
+        DisabledColor: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =46
+        Size: =16
+        Text: ="Sicherheitsbewertung"
+        Width: =248
+        X: =810
+        Y: =218
+        ZIndex: =13
+
+    Icon1_3 As icon.ArrowRight:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =34
+        Icon: =Icon.ArrowRight
+        OnSelect: =Navigate(Screen_SAMS_Request)
+        Width: =40
+        X: =1018
+        Y: =264
+        ZIndex: =14
+
