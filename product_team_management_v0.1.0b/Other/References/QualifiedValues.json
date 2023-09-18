@@ -1,0 +1,46 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_crb5e_dwh_reportingv_apps_overview_forms",
+      "Namespace": "dwh_reporting V_Apps_Overviews_1 (Formulare)",
+      "Values": {
+        "Information": "0530e093-8874-417f-a057-3896679e68dd"
+      }
+    },
+    {
+      "Kind": "default.cds_crb5e_samsberechtigungen_forms",
+      "Namespace": "SAMS_Berechtigungen_1 (Formulare)",
+      "Values": {
+        "Information": "8437b8dc-cfd3-46b9-98f2-a2d2b3a645c5"
+      }
+    },
+    {
+      "Kind": "default.cds_crb5e_samsleanix_pt_lookup_forms",
+      "Namespace": "SAMS LeanIX_PT_LookUp (Formulare)",
+      "Values": {
+        "Information": "cc617460-3b41-4360-81de-ddbbdb2a1a03"
+      }
+    },
+    {
+      "Kind": "default.cds_cr983_dwh_reportingv_apps_overview_3_forms",
+      "Namespace": "dwh_reporting V_Apps_Overviews (Formulare)",
+      "Values": {
+        "Information": "bb92b4a1-b259-4de9-b666-a6aa0620a370"
+      }
+    },
+    {
+      "Kind": "default.cds_cr983_sams_berechtigungen_forms",
+      "Namespace": "SAMS_Berechtigungen (Formulare)",
+      "Values": {
+        "Information": "7998639e-246b-4deb-9de6-46fd1a9bca75"
+      }
+    },
+    {
+      "Kind": "default.cds_cr983_tabelle1_forms",
+      "Namespace": "SAMS_LeanIX_PT_LookUp (Formulare)",
+      "Values": {
+        "Information": "e42bb929-be89-4f11-b31f-cf046a73f94d"
+      }
+    }
+  ]
+}
