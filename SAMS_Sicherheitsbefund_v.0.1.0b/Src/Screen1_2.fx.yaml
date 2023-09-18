@@ -1,0 +1,382 @@
+Screen1_2 As screen:
+    OnVisible: |-
+        =Set(Bearb_Form_Vis, true);
+        Set(Save_Form_Vis, false); 
+        ClearCollect(colGridData,
+        PowerBIIntegration.Data);
+        ClearCollect(SelectedSB,
+        PowerBIIntegration.Data)
+
+    Rectangle1_2 As rectangle:
+        Fill: =RGBA(0, 53, 77, 1)
+        Height: =74
+        Width: =1366
+        ZIndex: =5
+
+    Label1_3 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        Size: =19
+        Text: ="SAMS Applikation"
+        Width: =262
+        X: =552
+        Y: =9
+        ZIndex: =8
+
+    Group_Bearb_Form_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =60
+
+        Rectangle2_1 As rectangle:
+            BorderColor: =RGBA(0, 53, 77, 1)
+            BorderThickness: =3
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =673
+            Visible: =Bearb_Form_Vis
+            Width: =1339
+            X: =13
+            Y: =81
+            ZIndex: =22
+
+        Rectangle_Zeile1_1 As rectangle:
+            Fill: =RGBA(227, 234, 243, 1)
+            Height: =109
+            Visible: =Bearb_Form_Vis
+            Width: =1273
+            X: =46
+            Y: =149
+            ZIndex: =23
+
+        Rectangle_Zeile2_1 As rectangle:
+            Fill: =RGBA(227, 234, 243, 1)
+            Height: =122
+            Visible: =Bearb_Form_Vis
+            Width: =1273
+            X: =43
+            Y: =280
+            ZIndex: =24
+
+        Rectangle_Zeile3_1 As rectangle:
+            Fill: =RGBA(227, 234, 243, 1)
+            Height: =109
+            Visible: =Bearb_Form_Vis
+            Width: =1273
+            X: =43
+            Y: =424
+            ZIndex: =25
+
+        Rectangle_Zeile4_1 As rectangle:
+            Fill: =RGBA(227, 234, 243, 1)
+            Height: =109
+            Visible: =Bearb_Form_Vis
+            Width: =1273
+            X: =43
+            Y: =555
+            ZIndex: =26
+
+        Label2_1 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            Height: =51
+            Size: =17
+            Text: ="Bearbeitungsformular - " & CountRows(SelectedSB) & " Sicherheitsbefund(e) ausgewählt"
+            Visible: =Bearb_Form_Vis
+            Width: =887
+            X: =259
+            Y: =88
+            ZIndex: =27
+
+        Label6_8 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =55
+            PaddingLeft: =0
+            Text: |-
+                ="Kontextualisierter 
+                Schweregrad"
+            Visible: =Bearb_Form_Vis
+            Width: =204
+            X: =60
+            Y: =290
+            ZIndex: =28
+
+        Label6_7 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =32
+            PaddingLeft: =0
+            Text: ="Verantwortung"
+            Visible: =Bearb_Form_Vis
+            Width: =170
+            X: =60
+            Y: =163
+            ZIndex: =29
+
+        Dropdown2_1 As dropdown:
+            BorderThickness: =1
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronFill: =RGBA(32, 96, 126, 1)
+            Default: =""
+            Height: =39
+            Items: |-
+                =//Distinct(SAMS_Sicherheitsbefunde; Severity)
+                ["", "Critical", "High", "Medium", "Low"]
+            Visible: =Bearb_Form_Vis
+            Width: =195
+            X: =62
+            Y: =349
+            ZIndex: =30
+
+        Dropdown3_1 As dropdown:
+            BorderThickness: =1
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronFill: =RGBA(32, 96, 12, 1)
+            Height: =39
+            Items: =["", "K-DAM", "K-DAI", "Klärstelle"]
+            Visible: =Bearb_Form_Vis
+            Width: =221
+            X: =60
+            Y: =201
+            ZIndex: =31
+
+        Button2_2 As button:
+            Align: =Align.Left
+            BorderThickness: =0
+            Fill: =RGBA(32, 96, 126, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =51
+            HoverFill: =RGBA(0, 53, 77, 1)
+            OnSelect: |-
+                =If(And(Not(IsBlank(Dropdown2_1.Selected.Value)),Or(IsBlank(TextInput1_1.Text),TextInput1_1.Text = "Texteingabe")), 
+                Set(Schweregrad_Begruend, true),
+                ForAll(SelectedSB, UpdateIf('dwh_reporting V_Nessus_ITGZs', uniqueid = uniqueid,
+                {uniqueid:uniqueid, 
+                severity_edited:If(Checkbox_Schweregrad.Value, severity, If(IsBlank(Dropdown_kontextSeverity.Selected.Value), severity_edited, Dropdown_kontextSeverity.Selected.Value)),
+                responsibility_edited:If(IsBlank(Dropdown_Responsibility.Selected.Value), responsibility_edited, Dropdown_Responsibility.Selected.Value), 
+                justification:If(Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe"), justification, TextInput_Responsible.Text), 
+                irma_id:If(Or(IsBlank(TextInput_IRMA.Text),TextInput_IRMA.Text = "Texteingabe"), irma_id, TextInput_IRMA.Text), 
+                risk:If(IsBlank(Dropdown_Risiko.Selected.Value), risk,Dropdown_Risiko.Selected.Value), 
+                remediated:If(IsBlank(Dropdown_Rem.Selected.Value), remediated, Dropdown_Rem.Selected.Value)})
+                ));
+                
+                If(And(Not(IsBlank(Dropdown_kontextSeverity.Selected.Value)),Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe")), 
+                Set(Bearb_Form_Vis, true), Set(Save_Form_Vis, true)) ;
+                If(And(Not(IsBlank(Dropdown_kontextSeverity.Selected.Value)),Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe")), 
+                Set(Schweregrad_Begruend, true), Set(Schweregrad_Begruend, false))
+            PaddingLeft: =65
+            RadiusBottomLeft: =2
+            RadiusBottomRight: =2
+            RadiusTopLeft: =2
+            RadiusTopRight: =2
+            Size: =12
+            Text: ="Änderungen speichern"
+            Visible: =Bearb_Form_Vis
+            Width: =190
+            X: =1129
+            Y: =686
+            ZIndex: =32
+
+        TextInput1_1 As text:
+            BorderColor: =If(Schweregrad_Begruend, Color.Red, RGBA(0, 18, 107, 1))
+            BorderThickness: =If(Schweregrad_Begruend, 3, 1)
+            Default: ="Texteingabe"
+            Height: =39
+            Visible: =Bearb_Form_Vis
+            Width: =786
+            X: =479
+            Y: =330
+            ZIndex: =33
+
+        Label6_10 As label:
+            Color: =If(Schweregrad_Begruend, Color.Red, Color.Black)
+            FontWeight: =FontWeight.Semibold
+            Height: =32
+            Text: =If(Schweregrad_Begruend, "Bitte geben Sie eine Begründung ein", "Begründung")
+            Visible: =Bearb_Form_Vis
+            Width: =370
+            X: =479
+            Y: =293
+            ZIndex: =34
+
+        Label6_12 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =32
+            Text: ="IRMA ID"
+            Visible: =Bearb_Form_Vis
+            Width: =170
+            X: =411
+            Y: =438
+            ZIndex: =43
+
+        TextInput_IRMA_1 As text:
+            BorderThickness: =1
+            Default: ="Texteingabe"
+            Height: =42
+            Visible: =Bearb_Form_Vis
+            Width: =339
+            X: =411
+            Y: =476
+            ZIndex: =44
+
+        Image1_1 As image:
+            Height: =51
+            Image: ='save-16'
+            OnSelect: |-
+                =If(And(Not(IsBlank(Dropdown2_1.Selected.Value)),Or(IsBlank(TextInput1_1.Text),TextInput1_1.Text = "Texteingabe")), 
+                Set(Schweregrad_Begruend, true),
+                (ForAll(SelectedSB, UpdateIf('dwh_reporting V_Nessus_ITGZs', uniqueid = uniqueid,
+                {uniqueid:uniqueid, 
+                severity_edited:If(Checkbox_Schweregrad.Value, severity, If(IsBlank(Dropdown_kontextSeverity.Selected.Value), severity_edited, Dropdown_kontextSeverity.Selected.Value)),
+                responsibility_edited:If(IsBlank(Dropdown_Responsibility.Selected.Value), responsibility_edited, Dropdown_Responsibility.Selected.Value), 
+                justification:If(Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe"), justification, TextInput_Responsible.Text), 
+                irma_id:If(Or(IsBlank(TextInput_IRMA.Text),TextInput_IRMA.Text = "Texteingabe"), irma_id, TextInput_IRMA.Text), 
+                risk:If(IsBlank(Dropdown_Risiko.Selected.Value), risk,Dropdown_Risiko.Selected.Value), 
+                remediated:If(IsBlank(Dropdown_Rem.Selected.Value), remediated, Dropdown_Rem.Selected.Value)}))));
+                If(And(Not(IsBlank(Dropdown_kontextSeverity.Selected.Value)),Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe")), 
+                Set(Bearb_Form_Vis, true), Set(Save_Form_Vis, true)) ;
+                If(And(Not(IsBlank(Dropdown_kontextSeverity.Selected.Value)),Or(IsBlank(TextInput_Responsible.Text),TextInput_Responsible.Text = "Texteingabe")), 
+                Set(Schweregrad_Begruend, true), Set(Schweregrad_Begruend, false))
+            PaddingBottom: =3
+            PaddingLeft: =3
+            PaddingRight: =3
+            PaddingTop: =3
+            Visible: =Bearb_Form_Vis
+            Width: =48
+            X: =1128
+            Y: =686
+            ZIndex: =45
+
+        Label6_11 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =32
+            PaddingLeft: =0
+            Text: ="Risiko"
+            Visible: =Bearb_Form_Vis
+            Width: =170
+            X: =60
+            Y: =438
+            ZIndex: =47
+
+        Dropdown_Risiko_1 As dropdown:
+            BorderThickness: =1
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronFill: =RGBA(32, 96, 126, 1)
+            Default: =""
+            Height: =37
+            Items: |-
+                =//Distinct(SAMS_Sicherheitsbefunde; Severity)
+                ["", "Ja", "Nein"]
+            Visible: =Bearb_Form_Vis
+            Width: =195
+            X: =60
+            Y: =476
+            ZIndex: =48
+
+        Label6_13 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =32
+            PaddingLeft: =0
+            Text: ="Remediated"
+            Visible: =Bearb_Form_Vis
+            Width: =170
+            X: =60
+            Y: =568
+            ZIndex: =49
+
+        Dropdown_Rem_1 As dropdown:
+            BorderThickness: =1
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronFill: =RGBA(32, 96, 126, 1)
+            Default: =""
+            Height: =37
+            Items: |-
+                =//Distinct(SAMS_Sicherheitsbefunde; Severity)
+                ["", "Ja", "Nein"]
+            Visible: =Bearb_Form_Vis
+            Width: =195
+            X: =60
+            Y: =605
+            ZIndex: =50
+
+        Checkbox_Schweregrad_1 As checkbox:
+            Height: =46
+            Text: =""
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =Bearb_Form_Vis
+            Width: =43
+            X: =281
+            Y: =340
+            ZIndex: =58
+
+        Label6_9 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =55
+            PaddingLeft: =0
+            Text: |-
+                ="Schweregrad
+                übernehmen"
+            Visible: =Bearb_Form_Vis
+            Width: =136
+            X: =292
+            Y: =290
+            ZIndex: =59
+
+    Label4_1 As label:
+        Text: |
+            =CountRows(PowerBIIntegration.Data)
+        X: =174
+        Y: =686
+        ZIndex: =63
+
+    Group_Saved_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =63
+
+        Rectangle3_1 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =645
+            Visible: =Save_Form_Vis
+            Width: =1303
+            X: =31
+            Y: =95
+            ZIndex: =60
+
+        Label1_1 As label:
+            Align: =Align.Center
+            Color: =RGBA(0, 53, 77, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =158
+            Size: =18
+            Text: |-
+                ="Vielen Dank, 
+                Ihre Änderungen wurden gespeichert."
+            Visible: =Save_Form_Vis
+            Width: =511
+            X: =408
+            Y: =285
+            ZIndex: =61
+
+        Icon1_1 As icon.Check:
+            Height: =52
+            Icon: =Icon.Check
+            Visible: =Save_Form_Vis
+            Width: =52
+            X: =637
+            Y: =422
+            ZIndex: =62
+
+    Button1_1 As button:
+        OnSelect: |-
+            =ClearCollect(SelectedSB,
+            PowerBIIntegration.Data);
+            Set(Save_Form_Vis, false)
+        Text: ="Schaltfläche"
+        X: =324
+        Y: =691
+        ZIndex: =64
+

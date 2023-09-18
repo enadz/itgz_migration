@@ -1,0 +1,27 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =// ClearCollect(leanix_choices; {Result:"All"}; Distinct(SAMS_lean_ix_mock; leanix_app_leanixid)
+        //Kollektion 1: Power BI Daten (selektierten Sicherheitsbefunde in Power BI) werden als Collection SelectedSB abgespeichert
+        ClearCollect(SelectedSB,
+        PowerBIIntegration.Data);
+        //Kollektion 2: Subset der Dataverse Daten, Abgleich der Unique IDs aus Power BI mit Dataverse
+        // Dieses Subset wird für die Speicherung der Änderungen benötigt, die Änderungen werden mit einem ForAll Loop auf dieser Collection erfasst
+        ClearCollect(FilterSB, 
+        Filter('dwh_reporting V_Nessus_ITGZs', uniqueid in SelectedSB[@crb5e_uniqueid]));
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+
+    PowerBIIntegration As hostControl.DynamicHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+
