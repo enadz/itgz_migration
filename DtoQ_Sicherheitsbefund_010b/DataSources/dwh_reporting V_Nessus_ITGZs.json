@@ -1,0 +1,119 @@
+[
+  {
+    "DisplayName": "dwh_reporting V_Nessus_ITGZs (Ansichten)",
+    "Name": "_crb5e_dwh_reportingv_nessus_itgz_views",
+    "RelatedEntityName": "dwh_reporting V_Nessus_ITGZs",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "22adce9d-de09-4e23-b475-871361c11206": "dwh_reporting V_Nessus_ITGZ Associated View",
+      "5e55e8c9-d43f-46fe-a279-2cd6b569fad9": "dwh_reporting V_Nessus_ITGZ Advanced Find View",
+      "7a6d9f61-8f98-4632-a090-85fd757f4a81": "dwh_reporting V_Nessus_ITGZ Lookup View",
+      "872afe82-e5a3-439d-aef4-53281becbc81": "Inactive dwh_reporting V_Nessus_ITGZs",
+      "88ba1210-1f2e-4f06-91ce-341477f1fa76": "Active dwh_reporting V_Nessus_ITGZs"
+    }
+  },
+  {
+    "DisplayName": "Status (dwh_reporting V_Nessus_ITGZs)",
+    "Name": "crb5e_dwh_reportingv_nessus_itgz_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "dwh_reporting V_Nessus_ITGZs"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "dwh_reporting V_Nessus_ITGZs",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (dwh_reporting V_Nessus_ITGZs)",
+    "Name": "crb5e_dwh_reportingv_nessus_itgz_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "dwh_reporting V_Nessus_ITGZs"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "dwh_reporting V_Nessus_ITGZs",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "crb5e_dwh_reportingv_nessus_itgzs",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "crb5e_dwh_reportingv_nessus_itgz",
+    "MaxGetRowsCount": 2000,
+    "Name": "dwh_reporting V_Nessus_ITGZs",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "crb5e_ci_names": "CI_NAMES",
+      "crb5e_cvssv2basescore": "CVSSV2BaseScore",
+      "crb5e_date_edited": "Date_edited",
+      "crb5e_dnsname": "DNSName",
+      "crb5e_dwh_reportingv_nessus_itgz_AsyncOperations": "System Jobs",
+      "crb5e_dwh_reportingv_nessus_itgz_BulkDeleteFailures": "Bulk Delete Failures",
+      "crb5e_dwh_reportingv_nessus_itgz_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "crb5e_dwh_reportingv_nessus_itgz_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "crb5e_dwh_reportingv_nessus_itgz_ProcessSession": "Process Sessions",
+      "crb5e_dwh_reportingv_nessus_itgz_SyncErrors": "Sync Errors",
+      "crb5e_dwh_reportingv_nessus_itgzid": "dwh_reporting V_Nessus_ITGZ",
+      "crb5e_firstdiscovered": "FirstDiscovered",
+      "crb5e_ipaddress": "IPAddress",
+      "crb5e_irma_id": "Irma_ID",
+      "crb5e_justification": "Justification",
+      "crb5e_lastobserved": "LastObserved",
+      "crb5e_leanixid": "LeanixID",
+      "crb5e_name": "Name",
+      "crb5e_organization_unit": "Organization_Unit",
+      "crb5e_origin": "Origin",
+      "crb5e_plugin": "Plugin",
+      "crb5e_pluginname": "PluginName",
+      "crb5e_pluginoutputline": "PluginOutputLine",
+      "crb5e_port": "Port",
+      "crb5e_remediated": "Remediated",
+      "crb5e_responsibility_edited": "Responsibility_edited",
+      "crb5e_risk": "Risk",
+      "crb5e_roles": "Roles",
+      "crb5e_severity": "Severity",
+      "crb5e_severity_edited": "Severity_edited",
+      "crb5e_sla_overtime": "SLA_overtime",
+      "crb5e_uniqueid": "UniqueID",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "dwh_reporting V_Nessus_ITGZs",
+    "Type": "NativeCDSDataSourceInfo"
+  }
+]
