@@ -1,0 +1,102 @@
+{
+  "6be51262-cdec-446b-a749-4705f71a911f": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/laborbol/partial-builds/ase-v3/1.0.1653.3402/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "ae3558f4-1a65-4c81-ac1b-341cd89af947"
+    ],
+    "id": "6be51262-cdec-446b-a749-4705f71a911f"
+  },
+  "78eb1e64-003e-42ad-b7c6-b13570c1faab": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365-Benutzer",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/laborbol/partial-builds/ase-v3/1.0.1653.3402/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365-Benutzer"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "78eb1e64-003e-42ad-b7c6-b13570c1faab"
+  },
+  "ae3558f4-1a65-4c81-ac1b-341cd89af947": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logik-Flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "6be51262-cdec-446b-a749-4705f71a911f": {
+          "value": "shared_office365"
+        },
+        "d24dec3a-ba6e-40c4-8fad-5ae41c3c709d": {
+          "value": "shared_commondataserviceforapps"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "6772b68b-a0b1-4037-a1db-1bc49bf6ae23"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_commondataserviceforapps": {
+          "value": "d24dec3a-ba6e-40c4-8fad-5ae41c3c709d"
+        },
+        "shared_office365": {
+          "value": "6be51262-cdec-446b-a749-4705f71a911f"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "6772b68b-a0b1-4037-a1db-1bc49bf6ae23"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "sendEmailNotifications_v2"
+    ],
+    "dependencies": {
+      "shared_commondataserviceforapps": "d24dec3a-ba6e-40c4-8fad-5ae41c3c709d",
+      "shared_office365": "6be51262-cdec-446b-a749-4705f71a911f"
+    },
+    "dependents": [],
+    "id": "ae3558f4-1a65-4c81-ac1b-341cd89af947"
+  },
+  "d24dec3a-ba6e-40c4-8fad-5ae41c3c709d": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Premium",
+      "bypassConsent": true,
+      "displayName": "Microsoft Dataverse",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1651/1.0.1651.3382/commondataserviceforapps/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_commondataserviceforapps",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "ae3558f4-1a65-4c81-ac1b-341cd89af947"
+    ],
+    "id": "d24dec3a-ba6e-40c4-8fad-5ae41c3c709d"
+  }
+}
