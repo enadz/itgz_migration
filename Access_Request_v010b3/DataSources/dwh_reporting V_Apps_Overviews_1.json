@@ -1,0 +1,102 @@
+[
+  {
+    "DisplayName": "dwh_reporting V_Apps_Overviews_1 (Ansichten)",
+    "Name": "_crb5e_dwh_reportingv_apps_overview_views",
+    "RelatedEntityName": "dwh_reporting V_Apps_Overviews_1",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "141e7ae0-2fcd-48b5-a7cd-d89eabe33600": "dwh_reporting V_Apps_Overview Lookup View",
+      "21f15a1e-bb96-46a1-a7b6-c2bef242c7c2": "dwh_reporting V_Apps_Overview Associated View",
+      "66422e58-c1b4-4ac2-8a9f-6fdce691c096": "dwh_reporting V_Apps_Overview Advanced Find View",
+      "8fbc2acd-660b-4ffa-8b23-57d20c51c9e8": "Inactive dwh_reporting V_Apps_Overviews",
+      "fcc2eb5d-ad0d-40ce-b572-97acb6f32fd3": "Active dwh_reporting V_Apps_Overviews"
+    }
+  },
+  {
+    "DisplayName": "Status (dwh_reporting V_Apps_Overviews_1)",
+    "Name": "crb5e_dwh_reportingv_apps_overview_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "dwh_reporting V_Apps_Overviews_1"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "dwh_reporting V_Apps_Overviews_1",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (dwh_reporting V_Apps_Overviews_1)",
+    "Name": "crb5e_dwh_reportingv_apps_overview_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "dwh_reporting V_Apps_Overviews_1"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "dwh_reporting V_Apps_Overviews_1",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "crb5e_dwh_reportingv_apps_overviews",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "crb5e_dwh_reportingv_apps_overview",
+    "MaxGetRowsCount": 2000,
+    "Name": "dwh_reporting V_Apps_Overviews_1",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "crb5e_app_leanix_bk": "APP_LEANIX_BK",
+      "crb5e_app_name": "APP_NAME",
+      "crb5e_ci_name": "CI_NAME",
+      "crb5e_dept_name": "DEPT_NAME",
+      "crb5e_dwh_reportingv_apps_overview_AsyncOperations": "System Jobs",
+      "crb5e_dwh_reportingv_apps_overview_BulkDeleteFailures": "Bulk Delete Failures",
+      "crb5e_dwh_reportingv_apps_overview_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "crb5e_dwh_reportingv_apps_overview_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "crb5e_dwh_reportingv_apps_overview_ProcessSession": "Process Sessions",
+      "crb5e_dwh_reportingv_apps_overview_SyncErrors": "Sync Errors",
+      "crb5e_dwh_reportingv_apps_overviewid": "dwh_reporting V_Apps_Overview",
+      "crb5e_name": "Name",
+      "crb5e_product_team": "PRODUCT_TEAM",
+      "crb5e_subscription_roles": "SUBSCRIPTION_ROLES",
+      "crb5e_subscription_user_email": "SUBSCRIPTION_USER_EMAIL",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "dwh_reporting V_Apps_Overviews_1",
+    "Type": "NativeCDSDataSourceInfo"
+  }
+]

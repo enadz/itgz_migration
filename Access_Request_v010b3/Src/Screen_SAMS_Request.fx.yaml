@@ -1,0 +1,337 @@
+Screen_SAMS_Request As screen:
+    OnVisible: =Set(ResetCheckbox, false); Set(pt_indicator, true);ClearCollect(pt_leanix_liste, Distinct('dwh_reporting V_Apps_Overviews_1', PRODUCT_TEAM))
+
+    Rectangle1_1 As rectangle:
+        Fill: =RGBA(0, 53, 77, 1)
+        Height: =74
+        Width: =1366
+        ZIndex: =1
+
+    Label1_3 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =56
+        PaddingLeft: =15
+        Size: =18
+        Text: ="AM Reporting Platform - Access Requests"
+        Width: =534
+        Y: =8
+        ZIndex: =2
+
+    Label1_7 As label:
+        Align: =Align.Right
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =52
+        Size: =15
+        Text: =User().FullName
+        Width: =262
+        X: =1028
+        Y: =12
+        ZIndex: =3
+
+    Image1_4 As image:
+        Height: =56
+        Image: ='user-filled-48 (3)'
+        Width: =50
+        X: =1302
+        Y: =9
+        ZIndex: =4
+
+    Button1 As button:
+        Fill: =If(pt_indicator, RGBA(32, 96, 126, 1), RGBA(168,173,179,1))
+        OnSelect: =ClearCollect(pt_leanix_liste, Distinct('dwh_reporting V_Apps_Overviews_1', PRODUCT_TEAM)); Set(pt_indicator, true)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="Product Team"
+        Width: =200
+        X: =30
+        Y: =214
+        ZIndex: =5
+
+    Button1_1 As button:
+        Fill: =If(pt_indicator, RGBA(168,173,179,1),RGBA(32, 96, 126, 1))
+        OnSelect: =ClearCollect(pt_leanix_liste, Distinct('dwh_reporting V_Apps_Overviews_1', APP_NAME)); Set(pt_indicator, false)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="LeanIX Application"
+        Visible: =false
+        Width: =200
+        X: =244
+        Y: =214
+        ZIndex: =6
+
+    Container1 As groupContainer.verticalAutoLayoutContainer:
+        BorderColor: =RGBA(0, 53, 77, 1)
+        BorderThickness: =1
+        Height: =465
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =1018
+        X: =30
+        Y: =275
+        ZIndex: =7
+
+        Container2 As groupContainer.manualLayoutContainer:
+            BorderColor: =RGBA(0, 53, 77, 1)
+            BorderThickness: =1
+            FillPortions: =0
+            Height: =40
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            Checkbox_All As checkbox:
+                CheckboxSize: =25
+                Height: =40
+                OnCheck: =Clear(SelectedSB);Set(ResetCheckbox, true);ForAll(Collect(SelectedSB, Gallery1.AllItems),ThisRecord)
+                OnUncheck: =Set(ResetCheckbox, false); Clear(SelectedSB)
+                Text: =""
+                Width: =30
+                X: =5
+                ZIndex: =1
+
+            Title_Productteam As label:
+                FontWeight: =FontWeight.Semibold
+                Size: =14
+                Text: =If(pt_indicator, "Productteam", "LeanIX Application")
+                Width: =300
+                X: =Checkbox_All.Width + Checkbox_All.X
+                ZIndex: =2
+
+        Gallery1 As gallery.galleryVertical:
+            BorderColor: =RGBA(0, 53, 77, 1)
+            DelayItemLoading: =true
+            Height: =370
+            Items: =SortByColumns(Search(pt_leanix_liste, Searchfeld_Name.Text, "Value"), "Value")
+            Layout: =Layout.Vertical
+            LayoutMinHeight: =287
+            LayoutMinWidth: =320
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(30, Self.Height - 60))
+            ZIndex: =2
+
+            Checkbox_Select As checkbox:
+                CheckboxBackgroundFill: =If(Self.Value, RGBA(32,96,126,1),RGBA(255, 255, 255, 1))
+                CheckboxSize: =25
+                CheckmarkFill: =Color.White
+                Default: =ResetCheckbox
+                Height: =30
+                OnCheck: |-
+                    =Collect(SelectedSB, 
+                    {PT_LeanIX: ThisItem.Value}
+                    )
+                OnSelect: =Select(Parent)
+                OnUncheck: |-
+                    =Remove(SelectedSB, 
+                    LookUp(SelectedSB, PT_LeanIX = ThisItem.Value )
+                    )
+                PressedFill: |
+                    =ColorFade(Self.Fill, -30%)
+                Text: =""
+                Width: =30
+                ZIndex: =1
+
+            Label_PT As label:
+                Height: =30
+                OnSelect: =Select(Parent)
+                Text: =ThisItem.Value
+                Width: =650
+                X: =Checkbox_Select.X + Checkbox_Select.Width
+                ZIndex: =2
+
+            Label_Berechtigung As label:
+                Fill: |-
+                    =If(Label_Berechtigung.Text = "Requested", RGBA(252, 252, 210, 1),
+                    If(Label_Berechtigung.Text = "Accepted", RGBA(209, 232, 178, 1),
+                    If(Label_Berechtigung.Text = "Denied", RGBA(251, 188, 159, 1),
+                    Color.White)))
+                Height: =30
+                OnSelect: =Select(Parent)
+                Text: =LookUp(SAMS_Berechtigungen_1, Item_Request = ThisItem.Value && Name = User().Email, Request_Status)
+                X: =Label_Role.X + Label_Role.Width
+                ZIndex: =3
+
+            Label_Role As label:
+                Height: =30
+                OnSelect: =Select(Parent)
+                Text: =LookUp(SAMS_Berechtigungen_1, Item_Request = ThisItem.Value && Name = User().Email, User_Role)
+                X: =Label_PT.X + Label_PT.Width
+                ZIndex: =4
+
+    Searchfeld_Name As text:
+        BorderThickness: =1
+        Default: =""
+        Width: =400
+        X: =902
+        Y: =214
+        ZIndex: =8
+
+    Icon1 As icon.Search:
+        Height: =40
+        Icon: =Icon.Search
+        PaddingBottom: =4
+        PaddingLeft: =4
+        PaddingRight: =4
+        PaddingTop: =4
+        Width: =40
+        X: =1255
+        Y: =214
+        ZIndex: =9
+
+    Button_Leserechte As button:
+        Fill: =RGBA(32, 96, 126, 1)
+        Height: =60
+        OnSelect: |-
+            =ForAll(SelectedSB As aPatch,
+            With(
+                {
+                    wItem: 
+                    LookUp(
+                        SAMS_Berechtigungen_1,
+                        Name = User().Email && Item_Request = aPatch.PT_LeanIX && (Request_Status = "Accepted" || Request_Status = "Requested")
+                    )
+                },
+                Patch(
+                    SAMS_Berechtigungen_1,
+                    If(
+                        IsBlank(wItem.Name),
+                        Defaults(SAMS_Berechtigungen_1),
+                        First(Filter(SAMS_Berechtigungen_1, Item_Request = aPatch.PT_LeanIX && Name = User().Email))
+                    ),
+                    If(
+                        IsBlank(wItem.Name),
+                        {
+                        //Request_Item: aPatch.Value;
+                        Name: User().Email,
+                        Item_Request:aPatch.PT_LeanIX,
+                        Requested_Date:Now(),
+                        User_Role: "SAMS_Read",
+                        Application: "SAMS",
+                        Request_Status: "Requested",
+                        Item_Type: Label_PT_LeanIX.Text
+                        //VW_UserID: 'Office365-Benutzer'.UserProfile(User().Email).MailNickname
+                    }, 
+                    
+                    {
+                        Name: User().Email
+                        //User_Role: "SAMS_Write";
+                        //Request_Status: "Requested";
+                       // Requested_Date:Now()
+                    }
+                    
+                    )
+                    
+                )
+            )
+            ); 
+            ForAll(SelectedSB As aPatch, sendEmailNotifications_v2.Run(aPatch.PT_LeanIX, "Leserechte", User().Email, pt_indicator))
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="Leserechte beantragen"
+        Width: =200
+        X: =1102
+        Y: =315
+        ZIndex: =10
+
+    Button_Schreiberechte As button:
+        Fill: =RGBA(32, 96, 126, 1)
+        Height: =60
+        OnSelect: |-
+            =ForAll(SelectedSB As aPatch,
+            With(
+                {
+                    wItem: 
+                    LookUp(
+                        SAMS_Berechtigungen_1,
+                        Name = User().Email && Item_Request = aPatch.PT_LeanIX && (Request_Status = "Accepted" || Request_Status = "Requested")
+                    )
+                },
+                Patch(
+                    SAMS_Berechtigungen_1,
+                    If(
+                        IsBlank(wItem.Name),
+                        Defaults(SAMS_Berechtigungen_1),
+                        First(Filter(SAMS_Berechtigungen_1, Item_Request = aPatch.PT_LeanIX && Name = User().Email))
+                    ),
+                    If(
+                        IsBlank(wItem.Name_Request),
+                        {
+                        //Request_Item: aPatch.Value;
+                        Name: User().Email,
+                        Item_Request:aPatch.PT_LeanIX,
+                        Requested_Date:Now(),
+                        User_Role: "SAMS_Write",
+                        Application: "SAMS",
+                        Request_Status: "Requested",
+                        Item_Type: Label_PT_LeanIX.Text
+                        //VW_UserID: 'Office365-Benutzer'.UserProfile(User().Email).MailNickname
+                    },
+                        {
+                        Name: User().Email,
+                        User_Role: "SAMS_Write"
+                        //Request_Status: "Requested";
+                        //Requested_Date:Now()
+                    }
+                    )
+                    
+                )
+            )
+            );
+            ForAll(SelectedSB As aPatch, sendEmailNotifications_v2.Run(aPatch.PT_LeanIX, "Schreiberechte", User().Email, pt_indicator))
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="Schreiberechte beantragen"
+        Width: =200
+        X: =1102
+        Y: =404
+        ZIndex: =11
+
+    Label1_5 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =41
+        Size: =18
+        Text: ="SAMS Applikation"
+        Width: =526
+        X: =30
+        Y: =86
+        ZIndex: =12
+
+    Label1_9 As label:
+        Height: =78
+        Text: ="Die SAMS Applikation bieten einen Überblick über alle Sicherheitsbefunde, gruppiert nach Business Units, Produktteams und Applikationen. Die Sicherheitsbefunde lassen sich im Detail einsehen und, je nach Berechtigung des Nutzers, editieren. Berechtigungen können sowohl auf LeanIX Level als auch auf Produktteam Level beantragt werden."
+        Width: =1225
+        X: =30
+        Y: =120
+        ZIndex: =13
+
+    Image2_1 As image:
+        Height: =41
+        Image: ='external-link-16'
+        Tooltip: ="Link zur SAMS Applikation"
+        Width: =41
+        X: =302
+        Y: =79
+        ZIndex: =14
+
+    Label_PT_LeanIX As label:
+        Text: =If(pt_indicator, "Product Team", "LeanIX App")
+        Visible: =false
+        X: =504
+        Y: =214
+        ZIndex: =15
+
+    Confidential_Image As image:
+        Height: =71
+        Image: ='confidential-confidential-l-darkmode'
+        Width: =131
+        X: =615
+        ZIndex: =16
+

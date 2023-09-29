@@ -1,0 +1,40 @@
+Screen1 As screen:
+
+    "Gallery1_1 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver5.0'":
+        DelayItemLoading: =true
+        Items: =SortByColumns(Distinct('dwh_reporting V_Apps_Overviews_1', PRODUCT_TEAM), "Value")
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =80
+        X: =40
+        Y: =40
+        ZIndex: =1
+
+        Title2 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Value
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 86
+            X: =16
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =1
+
+    Label3 As label:
+        Text: =CountRows(SortByColumns(Distinct('dwh_reporting V_Apps_Overviews_1', PRODUCT_TEAM), "Value"))
+        X: =516
+        Y: =702
+        ZIndex: =2
+
+    Label3_4 As label:
+        Text: =CountRows('dwh_reporting V_Apps_Overviews_1')
+        X: =666
+        Y: =702
+        ZIndex: =3
+
