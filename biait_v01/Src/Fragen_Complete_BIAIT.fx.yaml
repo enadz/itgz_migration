@@ -1,0 +1,2281 @@
+Fragen_Complete_BIAIT As screen:
+    OnVisible: |-
+        =UpdateContext({myText: If(Spracheinstellung.SelectedText.Value = "English", "Insert Text",
+        If(Spracheinstellung.SelectedText.Value = "Deutsch", "Texteingabe")) }) ;
+        Set(Version, 1)
+
+    Complete_BIAIT_Form As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =34
+
+        Label6_5 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =44
+            Size: =15
+            Text: =If(Spracheinstellung.SelectedText.Value = "Deutsch", "Vollständige BIA-IT", If(Spracheinstellung.SelectedText.Value = "English", "Complete BIA-IT"))
+            Width: =956
+            X: =27
+            Y: =139
+            ZIndex: =11
+
+        Form_1h As form:
+            DataSource: ='BIA-IT_Antworten'
+            Height: =240
+            Item: =LookUp('BIA-IT_Antworten',LeanIX_ID=ID_input.Text && EvaluationVersion=Value(BoxVersionNumber.Text))
+            NumberOfColumns: =1
+            SnapToColumns: =false
+            Width: =160
+            X: =186
+            Y: =188
+            ZIndex: =12
+
+            VB_1_1_DataCard1_1 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_1_1"
+                Default: =ThisItem.VB_1_1
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_1_1")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue15_1.Selected.Value
+                Width: =160
+                X: =3
+                Y: =0
+                ZIndex: =1
+
+                DataCardValue15_1 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices('Money Option 1')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage11_1 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue15_1.Y + DataCardValue15_1.Height
+                    ZIndex: =3
+
+            VB_2_1_DataCard1_1 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_2_1"
+                Default: =ThisItem.VB_2_1
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_2_1")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue22_1.Selected.Value
+                Width: =160
+                X: =0
+                Y: =2
+                ZIndex: =1
+
+                DataCardValue22_1 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices(Reputationsschaden)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage18_1 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue22_1.Y + DataCardValue22_1.Height
+                    ZIndex: =3
+
+            VB_3_1_DataCard1_1 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_3_1"
+                Default: =ThisItem.VB_3_1
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_3_1")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue29_1.Selected.Value
+                Width: =160
+                X: =9
+                Y: =3
+                ZIndex: =1
+
+                DataCardValue29_1 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices('Rechtliche Auswirkung')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage25_1 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =39
+                    Y: =45
+                    ZIndex: =3
+
+            LeanIX_ID_DataCard2_1 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_name"
+                Default: =ThisItem.LeanIX_ID
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@HealthCheck_Antworten],DataSourceInfo.DisplayName,"crc4f_name")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@HealthCheck_Antworten], DataSourceInfo.MaxLength, "crc4f_name")
+                Required: =true
+                Update: =DataCardValue5_1.Text
+                Visible: =false
+                Width: =258
+                X: =0
+                Y: =0
+                ZIndex: =29
+
+                DataCardKey5_1 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =16
+                    Y: =46
+                    ZIndex: =1
+
+                DataCardValue5_1 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey5_1.Y + DataCardKey5_1.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage6_1 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue5_1.Y + DataCardValue5_1.Height
+                    ZIndex: =3
+
+                StarVisible6_1 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey5_1.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey5_1.Y
+                    ZIndex: =4
+
+        Form_4h As form:
+            DataSource: ='BIA-IT_Antworten'
+            Height: =240
+            Item: =LookUp('BIA-IT_Antworten',LeanIX_ID=ID_input.Text && EvaluationVersion=Value(BoxVersionNumber.Text))
+            NumberOfColumns: =1
+            SnapToColumns: =false
+            Width: =160
+            X: =326
+            Y: =188
+            ZIndex: =13
+
+            VB_1_2_DataCard1_2 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_1_2"
+                Default: =ThisItem.VB_1_2
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_1_2")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue16_2.Selected.Value
+                Width: =160
+                X: =6
+                Y: =0
+                ZIndex: =1
+
+                DataCardValue16_2 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices('Money Option 1')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage12_2 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue16_2.Y + DataCardValue16_2.Height
+                    ZIndex: =3
+
+            VB_2_2_DataCard1_2 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_2_2"
+                Default: =ThisItem.VB_2_2
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_2_2")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue23_2.Selected.Value
+                Width: =160
+                X: =3
+                Y: =2
+                ZIndex: =1
+
+                DataCardValue23_2 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices(Reputationsschaden)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage19_2 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue23_2.Y + DataCardValue23_2.Height
+                    ZIndex: =3
+
+            VB_3_2_DataCard1_2 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_3_2"
+                Default: =ThisItem.VB_3_2
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_3_2")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue30_2.Selected.Value
+                Width: =160
+                X: =0
+                Y: =4
+                ZIndex: =1
+
+                DataCardValue30_2 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices('Rechtliche Auswirkung')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage26_2 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue30_2.Y + DataCardValue30_2.Height
+                    ZIndex: =3
+
+            LeanIX_ID_DataCard2_2 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_name"
+                Default: =ThisItem.LeanIX_ID
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@HealthCheck_Antworten],DataSourceInfo.DisplayName,"crc4f_name")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@HealthCheck_Antworten], DataSourceInfo.MaxLength, "crc4f_name")
+                Required: =true
+                Update: =DataCardValue5_2.Text
+                Visible: =false
+                Width: =258
+                X: =0
+                Y: =0
+                ZIndex: =29
+
+                DataCardKey5_2 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue5_2 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey5_2.Y + DataCardKey5_2.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage6_2 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue5_2.Y + DataCardValue5_2.Height
+                    ZIndex: =3
+
+                StarVisible6_2 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey5_2.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey5_2.Y
+                    ZIndex: =4
+
+        Form_24h As form:
+            DataSource: ='BIA-IT_Antworten'
+            Height: =240
+            Item: =LookUp('BIA-IT_Antworten',LeanIX_ID=ID_input.Text && EvaluationVersion=Value(BoxVersionNumber.Text))
+            NumberOfColumns: =1
+            SnapToColumns: =false
+            Width: =160
+            X: =466
+            Y: =188
+            ZIndex: =14
+
+            VB_1_3_DataCard1_3 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_1_3"
+                Default: =ThisItem.VB_1_3
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_1_3")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue17_3.Selected.Value
+                Width: =160
+                X: =9
+                Y: =0
+                ZIndex: =1
+
+                DataCardValue17_3 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices('Money Option 1')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage13_3 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue17_3.Y + DataCardValue17_3.Height
+                    ZIndex: =3
+
+            VB_2_3_DataCard1_3 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_2_3"
+                Default: =ThisItem.VB_2_3
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_2_3")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue24_3.Selected.Value
+                Width: =160
+                X: =6
+                Y: =2
+                ZIndex: =1
+
+                DataCardValue24_3 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices(Reputationsschaden)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage20_3 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue24_3.Y + DataCardValue24_3.Height
+                    ZIndex: =3
+
+            VB_3_3_DataCard1_3 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_3_3"
+                Default: =ThisItem.VB_3_3
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_3_3")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue31_3.Selected.Value
+                Width: =160
+                X: =3
+                Y: =4
+                ZIndex: =1
+
+                DataCardValue31_3 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices('Rechtliche Auswirkung')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage27_3 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue31_3.Y + DataCardValue31_3.Height
+                    ZIndex: =3
+
+            LeanIX_ID_DataCard2_3 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_name"
+                Default: =ThisItem.LeanIX_ID
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@HealthCheck_Antworten],DataSourceInfo.DisplayName,"crc4f_name")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@HealthCheck_Antworten], DataSourceInfo.MaxLength, "crc4f_name")
+                Required: =true
+                Update: =DataCardValue5_3.Text
+                Visible: =false
+                Width: =258
+                X: =0
+                Y: =0
+                ZIndex: =29
+
+                DataCardKey5_3 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue5_3 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey5_3.Y + DataCardKey5_3.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage6_3 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue5_3.Y + DataCardValue5_3.Height
+                    ZIndex: =3
+
+                StarVisible6_3 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey5_3.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey5_3.Y
+                    ZIndex: =4
+
+        Form_72h As form:
+            DataSource: ='BIA-IT_Antworten'
+            Height: =240
+            Item: =LookUp('BIA-IT_Antworten',LeanIX_ID=ID_input.Text && EvaluationVersion=Value(BoxVersionNumber.Text))
+            NumberOfColumns: =1
+            SnapToColumns: =false
+            Width: =160
+            X: =606
+            Y: =188
+            ZIndex: =15
+
+            VB_1_4_DataCard1_4 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_1_4"
+                Default: =ThisItem.VB_1_4
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_1_4")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue18_5.Selected.Value
+                Width: =160
+                X: =0
+                Y: =1
+                ZIndex: =1
+
+                DataCardValue18_5 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices('Money Option 2')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage14_4 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue18_5.Y + DataCardValue18_5.Height
+                    ZIndex: =3
+
+            VB_2_4_DataCard1_4 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_2_4"
+                Default: =ThisItem.VB_2_4
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_2_4")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue25_4.Selected.Value
+                Width: =160
+                X: =9
+                Y: =2
+                ZIndex: =1
+
+                DataCardValue25_4 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices(Reputationsschaden)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage21_4 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue25_4.Y + DataCardValue25_4.Height
+                    ZIndex: =3
+
+            VB_3_4_DataCard1_4 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_3_4"
+                Default: =ThisItem.VB_3_4
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_3_4")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue32_4.Selected.Value
+                Width: =160
+                X: =6
+                Y: =4
+                ZIndex: =1
+
+                DataCardValue32_4 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices('Rechtliche Auswirkung')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage28_4 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue32_4.Y + DataCardValue32_4.Height
+                    ZIndex: =3
+
+            LeanIX_ID_DataCard2_4 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_name"
+                Default: =ThisItem.LeanIX_ID
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@HealthCheck_Antworten],DataSourceInfo.DisplayName,"crc4f_name")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@HealthCheck_Antworten], DataSourceInfo.MaxLength, "crc4f_name")
+                Required: =true
+                Update: =DataCardValue5_4.Text
+                Visible: =false
+                Width: =258
+                X: =0
+                Y: =0
+                ZIndex: =29
+
+                DataCardKey5_4 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue5_4 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey5_4.Y + DataCardKey5_4.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage6_4 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue5_4.Y + DataCardValue5_4.Height
+                    ZIndex: =3
+
+                StarVisible6_4 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey5_4.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey5_4.Y
+                    ZIndex: =4
+
+        Form_7d As form:
+            DataSource: ='BIA-IT_Antworten'
+            Height: =240
+            Item: =LookUp('BIA-IT_Antworten',LeanIX_ID=ID_input.Text && EvaluationVersion=Value(BoxVersionNumber.Text))
+            NumberOfColumns: =1
+            SnapToColumns: =false
+            Width: =160
+            X: =746
+            Y: =188
+            ZIndex: =16
+
+            VB_1_5_DataCard1_5 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_1_5"
+                Default: =ThisItem.VB_1_5
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_1_5")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue19_5.Selected.Value
+                Width: =160
+                X: =3
+                Y: =1
+                ZIndex: =1
+
+                DataCardValue19_5 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices('Money Option 2')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage15_5 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue19_5.Y + DataCardValue19_5.Height
+                    ZIndex: =3
+
+            VB_2_5_DataCard1_5 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_2_5"
+                Default: =ThisItem.VB_2_5
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_2_5")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue26_5.Selected.Value
+                Width: =160
+                X: =0
+                Y: =3
+                ZIndex: =1
+
+                DataCardValue26_5 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices(Reputationsschaden)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage22_5 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue26_5.Y + DataCardValue26_5.Height
+                    ZIndex: =3
+
+            VB_3_5_DataCard1_5 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_3_5"
+                Default: =ThisItem.VB_3_5
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_3_5")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue33_5.Selected.Value
+                Width: =160
+                X: =9
+                Y: =4
+                ZIndex: =1
+
+                DataCardValue33_5 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices('Rechtliche Auswirkung')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage29_5 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue33_5.Y + DataCardValue33_5.Height
+                    ZIndex: =3
+
+            LeanIX_ID_DataCard2_5 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_name"
+                Default: =ThisItem.LeanIX_ID
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@HealthCheck_Antworten],DataSourceInfo.DisplayName,"crc4f_name")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@HealthCheck_Antworten], DataSourceInfo.MaxLength, "crc4f_name")
+                Required: =true
+                Update: =DataCardValue5_5.Text
+                Visible: =false
+                Width: =258
+                X: =0
+                Y: =0
+                ZIndex: =29
+
+                DataCardKey5_5 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue5_5 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey5_5.Y + DataCardKey5_5.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage6_5 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue5_5.Y + DataCardValue5_5.Height
+                    ZIndex: =3
+
+                StarVisible6_5 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey5_5.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey5_5.Y
+                    ZIndex: =4
+
+        Form_14d As form:
+            DataSource: ='BIA-IT_Antworten'
+            Height: =240
+            Item: =LookUp('BIA-IT_Antworten',LeanIX_ID=ID_input.Text && EvaluationVersion=Value(BoxVersionNumber.Text))
+            NumberOfColumns: =1
+            SnapToColumns: =false
+            Width: =160
+            X: =886
+            Y: =188
+            ZIndex: =17
+
+            VB_1_6_DataCard1_6 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_1_6"
+                Default: =ThisItem.VB_1_6
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_1_6")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue20_6.Selected.Value
+                Width: =160
+                X: =6
+                Y: =1
+                ZIndex: =1
+
+                DataCardValue20_6 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices('Money Option 2')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage16_6 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue20_6.Y + DataCardValue20_6.Height
+                    ZIndex: =3
+
+            VB_2_6_DataCard1_6 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_2_6"
+                Default: =ThisItem.VB_2_6
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_2_6")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue27_6.Selected.Value
+                Width: =160
+                X: =3
+                Y: =3
+                ZIndex: =1
+
+                DataCardValue27_6 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices(Reputationsschaden)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage23_6 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue27_6.Y + DataCardValue27_6.Height
+                    ZIndex: =3
+
+            VB_3_6_DataCard1_6 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_3_6"
+                Default: =ThisItem.VB_3_6
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_3_6")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue34_6.Selected.Value
+                Width: =160
+                X: =0
+                Y: =5
+                ZIndex: =1
+
+                DataCardValue34_6 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices('Rechtliche Auswirkung')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage30_6 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue34_6.Y + DataCardValue34_6.Height
+                    ZIndex: =3
+
+            LeanIX_ID_DataCard2_6 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_name"
+                Default: =ThisItem.LeanIX_ID
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@HealthCheck_Antworten],DataSourceInfo.DisplayName,"crc4f_name")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@HealthCheck_Antworten], DataSourceInfo.MaxLength, "crc4f_name")
+                Required: =true
+                Update: =DataCardValue5_6.Text
+                Visible: =false
+                Width: =258
+                X: =0
+                Y: =0
+                ZIndex: =29
+
+                DataCardKey5_6 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue5_6 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey5_6.Y + DataCardKey5_6.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage6_6 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue5_6.Y + DataCardValue5_6.Height
+                    ZIndex: =3
+
+                StarVisible6_6 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey5_6.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey5_6.Y
+                    ZIndex: =4
+
+        Form_30d As form:
+            DataSource: ='BIA-IT_Antworten'
+            Height: =240
+            Item: =LookUp('BIA-IT_Antworten',LeanIX_ID=ID_input.Text && EvaluationVersion=Value(BoxVersionNumber.Text))
+            NumberOfColumns: =1
+            SnapToColumns: =false
+            Width: =160
+            X: =1026
+            Y: =188
+            ZIndex: =18
+
+            VB_1_7_DataCard1_7 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_1_7"
+                Default: =ThisItem.VB_1_7
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_1_7")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue21_7.Selected.Value
+                Width: =160
+                X: =9
+                Y: =1
+                ZIndex: =1
+
+                DataCardValue21_7 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices('Money Option 2')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage17_7 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue21_7.Y + DataCardValue21_7.Height
+                    ZIndex: =3
+
+            VB_2_7_DataCard1_7 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_2_7"
+                Default: =ThisItem.VB_2_7
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_2_7")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue28_7.Selected.Value
+                Width: =160
+                X: =6
+                Y: =3
+                ZIndex: =1
+
+                DataCardValue28_7 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices(Reputationsschaden)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage24_7 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue28_7.Y + DataCardValue28_7.Height
+                    ZIndex: =3
+
+            VB_3_7_DataCard1_7 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_3_7"
+                Default: =ThisItem.VB_3_7
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_3_7")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =80
+                Required: =false
+                Update: =DataCardValue35_7.Selected.Value
+                Width: =160
+                X: =3
+                Y: =5
+                ZIndex: =1
+
+                DataCardValue35_7 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices('Rechtliche Auswirkung')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 30
+                    X: =15
+                    Y: =25
+                    ZIndex: =2
+
+                ErrorMessage31_7 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue35_7.Y + DataCardValue35_7.Height
+                    ZIndex: =3
+
+            LeanIX_ID_DataCard2_7 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_name"
+                Default: =ThisItem.LeanIX_ID
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@HealthCheck_Antworten],DataSourceInfo.DisplayName,"crc4f_name")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@HealthCheck_Antworten], DataSourceInfo.MaxLength, "crc4f_name")
+                Required: =true
+                Update: =DataCardValue5_7.Text
+                Visible: =false
+                Width: =258
+                X: =0
+                Y: =0
+                ZIndex: =29
+
+                DataCardKey5_7 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue5_7 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey5_7.Y + DataCardKey5_7.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage6_7 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue5_7.Y + DataCardValue5_7.Height
+                    ZIndex: =3
+
+                StarVisible6_7 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey5_7.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey5_7.Y
+                    ZIndex: =4
+
+        Label4 As label:
+            Align: =Align.Center
+            Text: ="1 h"
+            Width: =130
+            X: =196
+            Y: =165
+            ZIndex: =19
+
+        Label4_1 As label:
+            Align: =Align.Center
+            Text: ="4 h"
+            Width: =130
+            X: =336
+            Y: =165
+            ZIndex: =20
+
+        Label4_3 As label:
+            Align: =Align.Center
+            Text: ="24 h"
+            Width: =130
+            X: =481
+            Y: =165
+            ZIndex: =21
+
+        Label4_4 As label:
+            Align: =Align.Center
+            Text: ="72 h"
+            Width: =130
+            X: =616
+            Y: =165
+            ZIndex: =22
+
+        Label4_5 As label:
+            Align: =Align.Center
+            Text: ="7 d"
+            Width: =130
+            X: =761
+            Y: =165
+            ZIndex: =23
+
+        Label4_6 As label:
+            Align: =Align.Center
+            Text: ="14 d"
+            Width: =130
+            X: =901
+            Y: =165
+            ZIndex: =24
+
+        Label4_7 As label:
+            Align: =Align.Center
+            Text: ="30 d"
+            Width: =130
+            X: =1041
+            Y: =165
+            ZIndex: =25
+
+        Label8 As label:
+            Height: =50
+            Text: |-
+                =If(Spracheinstellung.SelectedText.Value = "Deutsch", "Finanzielle
+                Auswirkungen (x h)", If(Spracheinstellung.SelectedText.Value = "English", "Financial
+                impact (x h)"))
+            Width: =185
+            X: =27
+            Y: =201
+            ZIndex: =26
+
+        Label8_1 As label:
+            Height: =50
+            Text: |-
+                =If(Spracheinstellung.SelectedText.Value = "Deutsch", "Reputations-
+                schaden (x h)", If(Spracheinstellung.SelectedText.Value = "English", "Reputation
+                loss (x h)"))
+            Width: =185
+            X: =27
+            Y: =282
+            ZIndex: =27
+
+        Label8_2 As label:
+            Height: =50
+            Text: |-
+                =If(Spracheinstellung.SelectedText.Value = "Deutsch", "Rechtliche
+                Auswirkung (x h)", If(Spracheinstellung.SelectedText.Value = "English", "Legal
+                impact (x h)"))
+            Width: =185
+            X: =27
+            Y: =359
+            ZIndex: =28
+
+        Rectangle7_1 As rectangle:
+            Fill: =RGBA(168, 173, 179, 1)
+            Height: =1
+            Width: =1165
+            X: =27
+            Y: =420
+            ZIndex: =29
+
+        Rectangle7 As rectangle:
+            Fill: =RGBA(168, 173, 179, 1)
+            Height: =1
+            Width: =1165
+            X: =27
+            Y: =201
+            ZIndex: =30
+
+        Form4 As form:
+            DataSource: ='BIA-IT_Antworten'
+            Height: =171
+            Item: =LookUp('BIA-IT_Antworten',LeanIX_ID=ID_input.Text && EvaluationVersion=Value(BoxVersionNumber.Text))
+            NumberOfColumns: =1
+            Width: =1159
+            X: =27
+            Y: =424
+            ZIndex: =31
+
+            VB_6_DataCard1 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_6"
+                Default: =ThisItem.VB_6
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_6")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =75
+                Required: =false
+                Update: =DataCardValue38.Selected.Value
+                Width: =1159
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey38 As label:
+                    Color: =RGBA(0, 0, 0, 1)
+                    Height: =33
+                    Text: =LookUp('BIA-IT_Fragen', Frage_ID = "VB_6" && Sprache = If(Spracheinstellung.SelectedText.Value = "Deutsch", "Deutsch", If(Spracheinstellung.SelectedText.Value = "English", "Englisch"))).Text
+                    Width: =Parent.Width - 10
+                    Wrap: =false
+                    ZIndex: =1
+
+                DataCardValue38 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices('VB_6 (BIA-IT_Antworten)')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 400
+                    X: =10
+                    Y: =DataCardKey38.Y + DataCardKey38.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage33 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue38.Y + DataCardValue38.Height
+                    ZIndex: =3
+
+                StarVisible33 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey38.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey38.Y
+                    ZIndex: =4
+
+            crc4f_VB_7_DataCard1 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crc4f_vb_7"
+                Default: =ThisItem.VB_7
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'BIA-IT_Antworten'],DataSourceInfo.DisplayName,"crc4f_vb_7")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =75
+                Required: =false
+                Update: =DataCardValue39.Selected.Value
+                Width: =1159
+                X: =0
+                Y: =1
+                ZIndex: =1
+
+                DataCardKey39 As label:
+                    Color: =RGBA(0, 0, 0, 1)
+                    Height: =33
+                    Text: =LookUp('BIA-IT_Fragen', Frage_ID = "VB_7" && Sprache = If(Spracheinstellung.SelectedText.Value = "Deutsch", "Deutsch", If(Spracheinstellung.SelectedText.Value = "English", "Englisch"))).Text
+                    Width: =Parent.Width - 10
+                    Wrap: =false
+                    ZIndex: =1
+
+                DataCardValue39 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Color.Black, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                    ChevronFill: =RGBA(32, 96, 126, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =30
+                    IsSearchable: =false
+                    Items: =Choices('VB_7 (BIA-IT_Antworten)')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 400
+                    X: =10
+                    Y: =DataCardKey39.Y + DataCardKey39.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage34 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue39.Y + DataCardValue39.Height
+                    ZIndex: =3
+
+                StarVisible34 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey39.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey39.Y
+                    ZIndex: =4
+
+    Header_Overview_4 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =56
+        PaddingLeft: =25
+        Size: =16
+        Text: =Gallery1.Selected.crc4f_leanix_app_displayname & " - Version " & Value(BoxVersionNumber.Text) 
+        Width: =1366
+        Y: =75
+        ZIndex: =39
+
+    Header_Group_6 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =20
+        ZIndex: =40
+
+        Header_Rectangle_6 As rectangle:
+            Fill: =RGBA(0, 53, 77, 1)
+            Height: =75
+            Width: =1366
+            ZIndex: =34
+
+        "'BIA-IT_Titel_6' As label":
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =52
+            Size: =18
+            Text: ="BIA-IT Applikation"
+            Width: =262
+            X: =26
+            Y: =10
+            ZIndex: =35
+
+        Nutzer_Name_6 As label:
+            Align: =Align.Right
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =52
+            Size: =15
+            Text: =User().FullName
+            Width: =262
+            X: =1034
+            Y: =13
+            ZIndex: =36
+
+        Nutzer_Icon_6 As image:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Height: =56
+            Image: ='user-filled-48 (3)'
+            Width: =50
+            X: =1302
+            Y: =9
+            ZIndex: =37
+
+        Confidential_6 As image:
+            Height: =75
+            Image: ='confidential-confidential-l-darkmode'
+            Width: =121
+            X: =622
+            ZIndex: =38
+
+    Button_App_Selection_13 As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =42
+
+        Button_AppSelection_Text_13 As label:
+            Align: =Align.Right
+            BorderColor: =RGBA(32, 96, 126, 1)
+            BorderThickness: =1
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(32, 96, 126, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =45
+            OnSelect: |-
+                =SubmitForm(Form4); SubmitForm(Form_1h); SubmitForm(Form_4h); SubmitForm(Form_24h);SubmitForm(Form_72h); SubmitForm(Form_7d); SubmitForm(Form_14d); SubmitForm(Form_30d);
+                Navigate(Fragen_BIAIT_Score)
+            PaddingLeft: =100
+            PaddingRight: =15
+            Text: |-
+                =If(Spracheinstellung.SelectedText.Value = "Deutsch", "Zurück", 
+                If(Spracheinstellung.SelectedText.Value = "English", "Return"))
+            Width: =253
+            X: =46
+            Y: =698
+            ZIndex: =40
+
+        Button_App_Selection_Image_13 As image:
+            Height: =45
+            Image: ='arrow-left-17'
+            OnSelect: |-
+                =SubmitForm(Form4); SubmitForm(Form_1h); SubmitForm(Form_4h); SubmitForm(Form_24h);SubmitForm(Form_72h); SubmitForm(Form_7d); SubmitForm(Form_14d); SubmitForm(Form_30d);
+                Navigate(Fragen_BIAIT_Score)
+            Width: =46
+            X: =48
+            Y: =698
+            ZIndex: =41
+
+    Button_App_Selection_14 As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =45
+
+        Button_AppSelection_Text_14 As label:
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(32, 96, 126, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =45
+            OnSelect: |-
+                =SubmitForm(Form4); SubmitForm(Form_1h); SubmitForm(Form_4h); SubmitForm(Form_24h);SubmitForm(Form_72h); SubmitForm(Form_7d); SubmitForm(Form_14d); SubmitForm(Form_30d);
+                If(RiskClass_Sel = 1, Navigate(Auswahl_Pruefer), Navigate('BIA-IT Overview')) 
+            PaddingLeft: =10
+            Text: |-
+                =If(Spracheinstellung.SelectedText.Value = "Deutsch", "Weiter", 
+                If(Spracheinstellung.SelectedText.Value = "English", "Continue"))
+            Width: =253
+            X: =1040
+            Y: =698
+            ZIndex: =43
+
+        Button_App_Selection_Image_14 As image:
+            Height: =45
+            Image: ='arrow-right-16'
+            OnSelect: |-
+                =SubmitForm(Form4); SubmitForm(Form_1h); SubmitForm(Form_4h); SubmitForm(Form_24h);SubmitForm(Form_72h); SubmitForm(Form_7d); SubmitForm(Form_14d); SubmitForm(Form_30d);
+                If(RiskClass_Sel = 1, Navigate(Auswahl_Pruefer), Navigate('BIA-IT Overview')) 
+            Width: =46
+            X: =1246
+            Y: =698
+            ZIndex: =44
+
+    Container15_3 As groupContainer.verticalAutoLayoutContainer:
+        Height: =60
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =1200
+        X: =78
+        Y: =612
+        ZIndex: =48
+
+        Container16_3 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =30
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =1
+
+            Rectangle3_3 As rectangle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(255, 255, 255, 1)
+                Width: =80
+                ZIndex: =1
+
+            Circle1_18 As circle:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(32, 96, 126, 1)
+                Fill: =RGBA(198, 223, 231, 1)
+                Height: =25
+                OnSelect: |
+                    =Navigate(Fragen_System_Beschreibung);
+                    SubmitForm(Form4); SubmitForm(Form_1h); SubmitForm(Form_4h); SubmitForm(Form_24h);SubmitForm(Form_72h); SubmitForm(Form_7d); SubmitForm(Form_14d); SubmitForm(Form_30d);
+                Width: =25
+                ZIndex: =2
+
+            Rectangle4_18 As rectangle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(32, 96, 126, 1)
+                Height: =1
+                Width: =176
+                ZIndex: =3
+
+            Circle1_19 As circle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(198, 223, 231, 1)
+                Height: =25
+                OnSelect: |
+                    =Navigate(Fragen_Impact_Analysis) ;
+                    SubmitForm(Form4); SubmitForm(Form_1h); SubmitForm(Form_4h); SubmitForm(Form_24h);SubmitForm(Form_72h); SubmitForm(Form_7d); SubmitForm(Form_14d); SubmitForm(Form_30d);
+                Width: =25
+                ZIndex: =4
+
+            Rectangle4_19 As rectangle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(32, 96, 126, 1)
+                Height: =1
+                Width: =176
+                ZIndex: =5
+
+            Circle1_20 As circle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(198, 223, 231, 1)
+                Height: =25
+                OnSelect: |
+                    =Navigate(Fragen_BIAIT_Score) ;
+                    SubmitForm(Form4); SubmitForm(Form_1h); SubmitForm(Form_4h); SubmitForm(Form_24h);SubmitForm(Form_72h); SubmitForm(Form_7d); SubmitForm(Form_14d); SubmitForm(Form_30d);
+                Width: =25
+                ZIndex: =6
+
+            Rectangle4_20 As rectangle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(32, 96, 126, 1)
+                Height: =1
+                Width: =176
+                ZIndex: =7
+
+            Circle1_21 As circle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(32, 96, 126, 1)
+                Height: =25
+                OnSelect: |-
+                    =Navigate(Fragen_Complete_BIAIT);
+                    Set(AltRiskClass, 0);
+                    Set(AltRiskClassJustification, "");
+                    If(AltRisk.Selected.Value = "", Set(AltRiskClass, 0), Set(AltRiskClass, Value(AltRisk.Selected.Value)));
+                    If(AltRisk.Selected.Value = "", Set(AltRiskClassJustification, ""), Set(AltRiskClassJustification, AltRiskJusti.Text));
+                    BIAScoreWrite.Run(
+                        Value(Score.Text),
+                        Value(Risk.Text),
+                        Result.Text,
+                        AltRiskClass,
+                        AltRiskClassJustification,
+                        Infrastructure.Text,
+                        CompleteBIAITNeeded.Text,
+                        GUID.Text,
+                        ID_input.Text);
+                     // NewForm(Form4);; NewForm(Form_1h);; NewForm(Form_4h);; NewForm(Form_24h);;NewForm(Form_72h);; NewForm(Form_7d);; NewForm(Form_14d);; NewForm(Form_30d)
+                Width: =25
+                ZIndex: =8
+
+            Rectangle4_21 As rectangle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(32, 96, 126, 1)
+                Height: =1
+                Width: =176
+                ZIndex: =9
+
+            Circle1_22 As circle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(198, 223, 231, 1)
+                Height: =25
+                OnSelect: |
+                    =Navigate(Auswahl_Pruefer);
+                    SubmitForm(Form4); SubmitForm(Form_1h); SubmitForm(Form_4h); SubmitForm(Form_24h);SubmitForm(Form_72h); SubmitForm(Form_7d); SubmitForm(Form_14d); SubmitForm(Form_30d);
+                Width: =25
+                ZIndex: =10
+
+            Rectangle4_22 As rectangle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(32, 96, 126, 1)
+                Height: =1
+                Width: =176
+                ZIndex: =11
+
+            Circle1_23 As circle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(198, 223, 231, 1)
+                Height: =25
+                OnSelect: |
+                    =Navigate('BIA-IT Overview');
+                    SubmitForm(Form4); SubmitForm(Form_1h); SubmitForm(Form_4h); SubmitForm(Form_24h);SubmitForm(Form_72h); SubmitForm(Form_7d); SubmitForm(Form_14d); SubmitForm(Form_30d);
+                Width: =25
+                ZIndex: =12
+
+        Container17_3 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =30
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Chpt1_SB_4 As label:
+                Align: =Align.Center
+                Color: =RGBA(32, 96, 126, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                Size: =11
+                Text: ="System Beschreibung"
+                Width: =200
+                ZIndex: =1
+
+            Chpt2_IA_4 As label:
+                Align: =Align.Center
+                Color: =RGBA(32, 96, 126, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                Size: =11
+                Text: ="Impact Analysis"
+                Width: =200
+                ZIndex: =2
+
+            Chpt3_BIAITScore_4 As label:
+                Align: =Align.Center
+                Color: =RGBA(32, 96, 126, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                Size: =11
+                Text: ="BIA-IT Score"
+                Width: =200
+                ZIndex: =3
+
+            Chpt4_CompleteBIAIT_4 As label:
+                Align: =Align.Center
+                Color: =RGBA(32, 96, 126, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                Size: =11
+                Text: ="Vollständige BIA-IT"
+                Width: =200
+                ZIndex: =4
+
+            Chpt5_Pruefer_4 As label:
+                Align: =Align.Center
+                Color: =RGBA(32, 96, 126, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                Size: =11
+                Text: ="Auswahl Prüfer"
+                Width: =200
+                ZIndex: =5
+
+            Chpt6_Overview_4 As label:
+                Align: =Align.Center
+                Color: =RGBA(32, 96, 126, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                Size: =11
+                Text: ="Übersicht"
+                Width: =200
+                ZIndex: =6
+
+    Button_App_Selection_15 As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =48
+
+        Button_AppSelection_Text_15 As label:
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(32, 96, 126, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =45
+            OnSelect: |
+                =SubmitForm(Form4); SubmitForm(Form_1h); SubmitForm(Form_4h); SubmitForm(Form_24h);SubmitForm(Form_72h); SubmitForm(Form_7d); SubmitForm(Form_14d); SubmitForm(Form_30d);
+            PaddingLeft: =10
+            Text: |-
+                =If(Spracheinstellung.SelectedText.Value = "Deutsch", "Zwischenspeichern", 
+                If(Spracheinstellung.SelectedText.Value = "English", "Save Progress"))
+            Width: =253
+            X: =556
+            Y: =698
+            ZIndex: =46
+
+        Button_App_Selection_Image_15 As image:
+            Height: =45
+            Image: ='save-16'
+            OnSelect: |-
+                =SubmitForm(Form4); SubmitForm(Form_1h); SubmitForm(Form_4h); SubmitForm(Form_24h);SubmitForm(Form_72h); SubmitForm(Form_7d); SubmitForm(Form_14d); SubmitForm(Form_30d);
+                 
+            PaddingBottom: =1
+            PaddingLeft: =1
+            PaddingRight: =1
+            PaddingTop: =1
+            Width: =46
+            X: =762
+            Y: =698
+            ZIndex: =47
+

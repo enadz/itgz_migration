@@ -1,0 +1,950 @@
+Fragen_BIAIT_Score As screen:
+    OnVisible: |-
+        =UpdateContext({myText: If(Spracheinstellung.SelectedText.Value = "English", "Insert Text",
+        If(Spracheinstellung.SelectedText.Value = "Deutsch", "Texteingabe")) }) ;
+        Set(Version, 1)
+
+    Rectangle4_3 As rectangle:
+        BorderColor: =RGBA(0, 18, 107, 0.9)
+        Fill: =RGBA(255, 255, 255, 0.9)
+        Height: =542
+        Width: =1204
+        X: =89
+        Y: =144
+        ZIndex: =5
+
+    Label6_3 As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =44
+        Size: =15
+        Text: =If(Spracheinstellung.SelectedText.Value = "Deutsch", "Ergebnis der Impact Analyse", If(Spracheinstellung.SelectedText.Value = "English", "Result of the Impact Analysis"))
+        Width: =956
+        X: =26
+        Y: =131
+        ZIndex: =23
+
+    Container1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =417
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =1200
+        X: =38
+        Y: =175
+        ZIndex: =24
+
+        Label28_1 As label:
+            Color: =RGBA(255, 0, 0, 1)
+            FontWeight: =FontWeight.Semibold
+            Text: |
+                =If(Spracheinstellung.SelectedText.Value = "Deutsch", "Fehlende Angaben - Bitte vervollständigen um eine Berechnung des BIA-IT Scores zu ermöglichen", If(Spracheinstellung.SelectedText.Value = "English", "Missing Information - Please complete to enable a calculation of the BIA-IT Score"))
+            Visible: =If(IsBlankOrError(BIAIT_Score), true, false)
+            Width: =1000
+            ZIndex: =1
+
+        Container2 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =40
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Icon6 As icon.Information:
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =40
+                Icon: =Icon.Information
+                Tooltip: |-
+                    =If(Spracheinstellung.Selected.Value = "Deutsch", 
+                    "Ergibt sich aus der Betrachtung aller vier Schadenswerte:
+                    BIA-IT-Score  =  MAX (Score_Financial,  Score_Reputation*3-1,  Score_Penal*3-1, Score_Time)",
+                    "is calculated from fields of impact analysis:
+                    BIA-IT-Score  =  MAX (Score_Financial,  Score_Reputation*3-1,  Score_Penal*3-1, Score_Time)")
+                Width: =20
+                ZIndex: =1
+
+            Rectangle5 As rectangle:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Width: =10
+                ZIndex: =2
+
+            Label10 As label:
+                Text: ="BIA-IT Score"
+                Width: =380
+                ZIndex: =3
+
+            Icon14 As icon.Information:
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =40
+                Icon: =Icon.Information
+                Tooltip: |-
+                    =If(Spracheinstellung.Selected.Value = "Deutsch",
+                    "Ergibt sich aus dem berechneten BIA-IT Score und ist ein Vorschlag / Richtwert an den Anforderer:
+                    BIA-IT-Score = 0,          dann risk class = 4;
+                    BIA-IT-Score = 1 bis 3, dann risk class = 3; 
+                    BIA-IT-Score = 4 bis 6, dann risk class = 2;
+                    BIA-IT Score = 7 bis 12, dann risk class = 1",
+                    "is set according to BIA-IT Score, the value is considered as a recommendation for business department and service responsible.
+                    BIA-IT-Score = 0,               risk class = 4;
+                    BIA-IT-Score = 1 to  3,       risk class = 3; 
+                    BIA-IT-Score = 4 to 6,        risk class = 2;
+                    BIA-IT Score = 7 to 12,      risk class = 1")
+                Width: =20
+                ZIndex: =4
+
+            Rectangle17 As rectangle:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Width: =10
+                ZIndex: =5
+
+            Label19 As label:
+                Text: |
+                    =If(Spracheinstellung.SelectedText.Value = "Deutsch", "Risikoklasse (Empfehlung)", If(Spracheinstellung.SelectedText.Value = "English", "Risk Class (proposal)"))
+                Width: =400
+                ZIndex: =6
+
+        Container3 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =35
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            Rectangle6 As rectangle:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Width: =40
+                ZIndex: =1
+
+            Score As label:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderThickness: =1
+                Height: =30
+                Text: =BIAIT_Score
+                ZIndex: =2
+
+            Rectangle16 As rectangle:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Width: =260
+                ZIndex: =3
+
+            Risk As label:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderThickness: =1
+                Height: =30
+                Text: =RiskClass
+                ZIndex: =4
+
+        Container6 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =40
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =4
+
+            Icon11 As icon.Information:
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =40
+                Icon: =Icon.Information
+                Tooltip: |-
+                    =If(Spracheinstellung.Selected.Value = "Deutsch",
+                    "Ob eine BCAL Aufnahme erforderlich ist, wird an dieser Stelle unter Berücksichtigung der Daten bewertet.",
+                    "Whether a BCAL onboarding is required is evaluated at this point taking into account the data.")
+                Width: =20
+                ZIndex: =1
+
+            Rectangle10 As rectangle:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Width: =10
+                ZIndex: =2
+
+            Label15 As label:
+                Text: |
+                    = If(Spracheinstellung.SelectedText.Value = "Deutsch", "Ergebnis der Business Impact Analyse", 
+                     If(Spracheinstellung.SelectedText.Value = "English", "Result of the Business Impact Analysis"))
+                Width: =400
+                ZIndex: =3
+
+        Container7 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =35
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =5
+
+            Rectangle11 As rectangle:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Width: =40
+                ZIndex: =1
+
+            Result As label:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderThickness: =1
+                Height: =30
+                Text: |-
+                    =If(BIAIT_Score <= 6 && Spracheinstellung.Selected.Value = "Deutsch", 
+                    "Applikation ist nicht geschäftskritisch, daher voraussichtlich keine BCAL-Aufnahme erforderlich.",
+                    If(BIAIT_Score > 6 && Spracheinstellung.Selected.Value = "Deutsch",
+                    "Applikation ist geschäftskritisch. Aufnahme auf BCAL voraussichtlich erforderlich.",
+                    If(BIAIT_Score <= 6 && Spracheinstellung.Selected.Value = "English",
+                    "Application is not business-critical, so no BCAL onboarding is expected to be required.",
+                    "Application is business-critical. Oboarding on BCAL is expected to be required.")))
+                Width: =960
+                ZIndex: =2
+
+        Container8 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =40
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =6
+
+            Icon12 As icon.Information:
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =40
+                Icon: =Icon.Information
+                Tooltip: |-
+                    =If(Spracheinstellung.Selected.Value = "Deutsch",
+                    "Falls der Fachbereich eine abweichende Risk class (1-4) fordert, muss dies begründet werden.",
+                    "normally not to be used; If necessary, the business department can specify different risk class. In this case there should be a justifaction.")
+                Width: =20
+                ZIndex: =1
+
+            Rectangle12 As rectangle:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Width: =10
+                ZIndex: =2
+
+            Label17 As label:
+                Text: |-
+                    = If(Spracheinstellung.SelectedText.Value = "Deutsch", "Abweichende Risiko Klasse und Begründung", 
+                     If(Spracheinstellung.SelectedText.Value = "English", "Risk Class (alternative requirement) and justification"))
+                Width: =400
+                ZIndex: =3
+
+        Container9 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =35
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =7
+
+            Rectangle13 As rectangle:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Width: =40
+                ZIndex: =1
+
+            AltRisk As dropdown:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(0,53,77,1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(0, 0, 0, 0)
+                ChevronFill: =RGBA(32, 96, 126, 1)
+                Default: =""
+                Height: =30
+                Items: =["", "1","2","3","4"]
+                OnChange: |-
+                    =If(AltRisk.Selected.Value = "", Set(RiskClass_Sel, RiskClass),
+                    Set(RiskClass_Sel, Value(AltRisk.Selected.Value))
+                    )
+                OnSelect: |-
+                    =If(AltRisk.Selected.Value = "", Set(RiskClass_Sel, RiskClass),
+                    Set(RiskClass_Sel, Value(AltRisk.Selected.Value))
+                    )
+                Width: =120
+                ZIndex: =2
+
+            Rectangle14 As rectangle:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Width: =40
+                ZIndex: =3
+
+            AltRiskJusti As text:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderThickness: =1
+                Default: =
+                Height: =30
+                HintText: =If(Spracheinstellung.SelectedText.Value = "Deutsch", "Texteingabe", If(Spracheinstellung.SelectedText.Value = "English", "Insert Text"))
+                Width: =800
+                ZIndex: =4
+
+        Container10 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =40
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =8
+
+            Icon13 As icon.Information:
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =40
+                Icon: =Icon.Information
+                Tooltip: |-
+                    =If(Spracheinstellung.Selected.Value = "Deutsch",
+                    "Empfehlung auf Basis der Risiko-Klasse (1-4)",
+                    "Recommendation for system infrastructure class to be used, based on the recommended risk class")
+                Width: =20
+                ZIndex: =1
+
+            Rectangle15 As rectangle:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Width: =10
+                ZIndex: =2
+
+            Label18 As label:
+                Text: |-
+                    = If(Spracheinstellung.SelectedText.Value = "Deutsch", "Empfehlung für Infrastruktur", 
+                     If(Spracheinstellung.SelectedText.Value = "English", "Recommendation for infrastructure (based on risk class)"))
+                Width: =400
+                ZIndex: =3
+
+        Container11 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =35
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =9
+
+            Rectangle18 As rectangle:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =35
+                Width: =40
+                ZIndex: =1
+
+            Infrastructure As label:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderThickness: =1
+                Height: =30
+                Text: |-
+                    =If(RiskClass_Sel = 1, "disaster-proof (Infrastructure in separated data centers)",
+                    If(RiskClass_Sel = 2, "high available (Cluster or Backup-System)",
+                    If(RiskClass_Sel = 3, "standard architecture",
+                    If(RiskClass_Sel = 4, "no requirement"))))
+                Width: =960
+                ZIndex: =2
+
+        Container12 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =40
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =10
+
+            Icon15 As icon.Information:
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =40
+                Icon: =Icon.Information
+                Tooltip: |-
+                    =If(Spracheinstellung.Selected.Value = "Deutsch",
+                    "Ergibt sich aus den folgenden Kriterien:
+                    a) BIA-IT-Score > 6 oder
+                    b) System ist bereits auf der BCAL oder 
+                    c) unabhängig vom BIA-IT-Score wird eine Einstufung 'Risk class 1' gefordert
+                    Wenn das Ergebnis 'Ja' ist, muss auch die vollständige BIA-IT ausgefüllt werden",
+                    "In case that the result of this field is 'yes', then the complete BIA-IT has to be filled. This happens if either 
+                    a) BIA-IT-Score > 6 or 
+                    b) application is already part of BCAL or 
+                    c) business department requires risk class 1.")
+                Width: =20
+                ZIndex: =1
+
+            Rectangle20 As rectangle:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Width: =10
+                ZIndex: =2
+
+            Label23 As label:
+                Text: |-
+                    = If(Spracheinstellung.SelectedText.Value = "Deutsch", "Vollständige BIA-IT notwendig?", 
+                     If(Spracheinstellung.SelectedText.Value = "English", " Complete BIA-IT necessary?"))
+                Width: =400
+                ZIndex: =3
+
+        Container13 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =35
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =11
+
+            Rectangle21 As rectangle:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Width: =40
+                ZIndex: =1
+
+            CompleteBIAITNeeded As label:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderThickness: =1
+                Height: =30
+                Text: |-
+                    =If((IsBlank(RiskClass_Sel)), "To be assesed",
+                    If(
+                        RiskClass_Sel < 3, "Ja", "Nein"))
+                Width: =140
+                ZIndex: =2
+
+            Rectangle22 As rectangle:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =35
+                Width: =40
+                ZIndex: =3
+
+            Label25 As label:
+                AlignInContainer: =AlignInContainer.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Fill: =RGBA(128, 128, 128, 1)
+                Height: =30
+                OnSelect: |-
+                    =Set(AltRiskClass, 0);
+                    Set(AltRiskClassJustification, "");
+                    If(AltRisk.Selected.Value = "", Set(AltRiskClass, 0), Set(AltRiskClass, Value(AltRisk.Selected.Value)));
+                    If(AltRisk.Selected.Value = "", Set(AltRiskClassJustification, ""), Set(AltRiskClassJustification, AltRiskJusti.Text));
+                    BIAScoreWrite.Run(
+                        Value(Score.Text),
+                        Value(Risk.Text),
+                        Result.Text,
+                        AltRiskClass,
+                        AltRiskClassJustification,
+                        Infrastructure.Text,
+                        CompleteBIAITNeeded.Text,
+                        GUID.Text,
+                        ID_input.Text);
+                    Navigate(Fragen_Complete_BIAIT)
+                Text: ="Zur Vollständigen BIA-IT"
+                Visible: =If(And(RiskClass_Sel < 3, Not(IsBlank(RiskClass_Sel))), true, false)
+                Width: =205
+                ZIndex: =4
+
+    Header_Overview_3 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =56
+        PaddingLeft: =25
+        Size: =16
+        Text: =Gallery1.Selected.crc4f_leanix_app_displayname & " - Version " & Value(BoxVersionNumber.Text) 
+        Width: =1366
+        Y: =75
+        ZIndex: =32
+
+    Header_Group_5 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =20
+        ZIndex: =33
+
+        Header_Rectangle_5 As rectangle:
+            Fill: =RGBA(0, 53, 77, 1)
+            Height: =75
+            Width: =1366
+            ZIndex: =27
+
+        "'BIA-IT_Titel_5' As label":
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =52
+            Size: =18
+            Text: ="BIA-IT Applikation"
+            Width: =262
+            X: =26
+            Y: =10
+            ZIndex: =28
+
+        Nutzer_Name_5 As label:
+            Align: =Align.Right
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =52
+            Size: =15
+            Text: =User().FullName
+            Width: =262
+            X: =1034
+            Y: =13
+            ZIndex: =29
+
+        Nutzer_Icon_5 As image:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Height: =56
+            Image: ='user-filled-48 (3)'
+            Width: =50
+            X: =1302
+            Y: =9
+            ZIndex: =30
+
+        Confidential_5 As image:
+            Height: =75
+            Image: ='confidential-confidential-l-darkmode'
+            Width: =121
+            X: =622
+            ZIndex: =31
+
+    Button_App_Selection_10 As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =35
+
+        Button_AppSelection_Text_10 As label:
+            Align: =Align.Right
+            BorderColor: =RGBA(32, 96, 126, 1)
+            BorderThickness: =1
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(32, 96, 126, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =45
+            OnSelect: |-
+                =Set(AltRiskClass, 0);
+                Set(AltRiskClassJustification, "");
+                If(AltRisk.Selected.Value = "", Set(AltRiskClass, 0), Set(AltRiskClass, Value(AltRisk.Selected.Value)));
+                If(AltRisk.Selected.Value = "", Set(AltRiskClassJustification, ""), Set(AltRiskClassJustification, AltRiskJusti.Text));
+                BIAScoreWrite.Run(
+                    Value(Score.Text),
+                    Value(Risk.Text),
+                    Result.Text,
+                    AltRiskClass,
+                    AltRiskClassJustification,
+                    Infrastructure.Text,
+                    CompleteBIAITNeeded.Text,
+                    GUID.Text,
+                    ID_input.Text);
+                Navigate(Fragen_Impact_Analysis); // NewForm(Form4);; NewForm(Form_1h);; NewForm(Form_4h);; NewForm(Form_24h);;NewForm(Form_72h);; NewForm(Form_7d);; NewForm(Form_14d);; NewForm(Form_30d)
+            PaddingLeft: =100
+            PaddingRight: =15
+            Text: |-
+                =If(Spracheinstellung.SelectedText.Value = "Deutsch", "Zurück", 
+                If(Spracheinstellung.SelectedText.Value = "English", "Return"))
+            Width: =253
+            X: =46
+            Y: =698
+            ZIndex: =33
+
+        Button_App_Selection_Image_10 As image:
+            Height: =45
+            Image: ='arrow-left-17'
+            OnSelect: |-
+                =Set(AltRiskClass, 0);
+                Set(AltRiskClassJustification, "");
+                If(AltRisk.Selected.Value = "", Set(AltRiskClass, 0), Set(AltRiskClass, Value(AltRisk.Selected.Value)));
+                If(AltRisk.Selected.Value = "", Set(AltRiskClassJustification, ""), Set(AltRiskClassJustification, AltRiskJusti.Text));
+                BIAScoreWrite.Run(
+                    Value(Score.Text),
+                    Value(Risk.Text),
+                    Result.Text,
+                    AltRiskClass,
+                    AltRiskClassJustification,
+                    Infrastructure.Text,
+                    CompleteBIAITNeeded.Text,
+                    GUID.Text,
+                    ID_input.Text);
+                Navigate(Fragen_Impact_Analysis); // NewForm(Form4);; NewForm(Form_1h);; NewForm(Form_4h);; NewForm(Form_24h);;NewForm(Form_72h);; NewForm(Form_7d);; NewForm(Form_14d);; NewForm(Form_30d)
+            Width: =46
+            X: =48
+            Y: =698
+            ZIndex: =34
+
+    Button_App_Selection_11 As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =38
+
+        Button_AppSelection_Text_11 As label:
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(32, 96, 126, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =45
+            OnSelect: |-
+                =Set(AltRiskClass, 0);
+                Set(AltRiskClassJustification, "");
+                If(AltRisk.Selected.Value = "", Set(AltRiskClass, 0), Set(AltRiskClass, Value(AltRisk.Selected.Value)));
+                If(AltRisk.Selected.Value = "", Set(AltRiskClassJustification, ""), Set(AltRiskClassJustification, AltRiskJusti.Text));
+                BIAScoreWrite.Run(
+                    Value(Score.Text),
+                    Value(Risk.Text),
+                    Result.Text,
+                    AltRiskClass,
+                    AltRiskClassJustification,
+                    Infrastructure.Text,
+                    CompleteBIAITNeeded.Text,
+                    GUID.Text,
+                    ID_input.Text);
+                Navigate(Auswahl_Pruefer); 
+            PaddingLeft: =10
+            Text: |-
+                =If(Spracheinstellung.SelectedText.Value = "Deutsch", "Weiter", 
+                If(Spracheinstellung.SelectedText.Value = "English", "Continue"))
+            Width: =253
+            X: =1040
+            Y: =698
+            ZIndex: =36
+
+        Button_App_Selection_Image_11 As image:
+            Height: =45
+            Image: ='arrow-right-16'
+            OnSelect: |-
+                =Set(AltRiskClass, 0);
+                Set(AltRiskClassJustification, "");
+                If(AltRisk.Selected.Value = "", Set(AltRiskClass, 0), Set(AltRiskClass, Value(AltRisk.Selected.Value)));
+                If(AltRisk.Selected.Value = "", Set(AltRiskClassJustification, ""), Set(AltRiskClassJustification, AltRiskJusti.Text));
+                BIAScoreWrite.Run(
+                    Value(Score.Text),
+                    Value(Risk.Text),
+                    Result.Text,
+                    AltRiskClass,
+                    AltRiskClassJustification,
+                    Infrastructure.Text,
+                    CompleteBIAITNeeded.Text,
+                    GUID.Text,
+                    ID_input.Text);
+                Navigate(Auswahl_Pruefer); // NewForm(Form4);; NewForm(Form_1h);; NewForm(Form_4h);; NewForm(Form_24h);;NewForm(Form_72h);; NewForm(Form_7d);; NewForm(Form_14d);; NewForm(Form_30d)
+            Width: =46
+            X: =1246
+            Y: =698
+            ZIndex: =37
+
+    Container15_2 As groupContainer.verticalAutoLayoutContainer:
+        Height: =60
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =1200
+        X: =78
+        Y: =612
+        ZIndex: =41
+
+        Container16_2 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =30
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =1
+
+            Rectangle3_2 As rectangle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(255, 255, 255, 1)
+                Width: =80
+                ZIndex: =1
+
+            Circle1_12 As circle:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(32, 96, 126, 1)
+                Fill: =RGBA(198, 223, 231, 1)
+                Height: =25
+                OnSelect: |-
+                    =Navigate(Fragen_System_Beschreibung);
+                    Set(AltRiskClass, 0);
+                    Set(AltRiskClassJustification, "");
+                    If(AltRisk.Selected.Value = "", Set(AltRiskClass, 0), Set(AltRiskClass, Value(AltRisk.Selected.Value)));
+                    If(AltRisk.Selected.Value = "", Set(AltRiskClassJustification, ""), Set(AltRiskClassJustification, AltRiskJusti.Text));
+                    BIAScoreWrite.Run(
+                        Value(Score.Text),
+                        Value(Risk.Text),
+                        Result.Text,
+                        AltRiskClass,
+                        AltRiskClassJustification,
+                        Infrastructure.Text,
+                        CompleteBIAITNeeded.Text,
+                        GUID.Text,
+                        ID_input.Text);
+                     // NewForm(Form4);; NewForm(Form_1h);; NewForm(Form_4h);; NewForm(Form_24h);;NewForm(Form_72h);; NewForm(Form_7d);; NewForm(Form_14d);; NewForm(Form_30d)
+                Width: =25
+                ZIndex: =2
+
+            Rectangle4_13 As rectangle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(32, 96, 126, 1)
+                Height: =1
+                Width: =176
+                ZIndex: =3
+
+            Circle1_13 As circle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(198, 223, 231, 1)
+                Height: =25
+                OnSelect: |-
+                    =Navigate(Fragen_Impact_Analysis) ;
+                    Set(AltRiskClass, 0);
+                    Set(AltRiskClassJustification, "");
+                    If(AltRisk.Selected.Value = "", Set(AltRiskClass, 0), Set(AltRiskClass, Value(AltRisk.Selected.Value)));
+                    If(AltRisk.Selected.Value = "", Set(AltRiskClassJustification, ""), Set(AltRiskClassJustification, AltRiskJusti.Text));
+                    BIAScoreWrite.Run(
+                        Value(Score.Text),
+                        Value(Risk.Text),
+                        Result.Text,
+                        AltRiskClass,
+                        AltRiskClassJustification,
+                        Infrastructure.Text,
+                        CompleteBIAITNeeded.Text,
+                        GUID.Text,
+                        ID_input.Text);
+                     // NewForm(Form4);; NewForm(Form_1h);; NewForm(Form_4h);; NewForm(Form_24h);;NewForm(Form_72h);; NewForm(Form_7d);; NewForm(Form_14d);; NewForm(Form_30d)
+                Width: =25
+                ZIndex: =4
+
+            Rectangle4_14 As rectangle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(32, 96, 126, 1)
+                Height: =1
+                Width: =176
+                ZIndex: =5
+
+            Circle1_14 As circle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(32, 96, 126, 1)
+                Height: =25
+                OnSelect: |
+                    =Navigate(Fragen_BIAIT_Score) ;
+                Width: =25
+                ZIndex: =6
+
+            Rectangle4_15 As rectangle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(32, 96, 126, 1)
+                Height: =1
+                Width: =176
+                ZIndex: =7
+
+            Circle1_15 As circle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(198, 223, 231, 1)
+                Height: =25
+                OnSelect: |-
+                    =Navigate(Fragen_Complete_BIAIT);
+                    Set(AltRiskClass, 0);
+                    Set(AltRiskClassJustification, "");
+                    If(AltRisk.Selected.Value = "", Set(AltRiskClass, 0), Set(AltRiskClass, Value(AltRisk.Selected.Value)));
+                    If(AltRisk.Selected.Value = "", Set(AltRiskClassJustification, ""), Set(AltRiskClassJustification, AltRiskJusti.Text));
+                    BIAScoreWrite.Run(
+                        Value(Score.Text),
+                        Value(Risk.Text),
+                        Result.Text,
+                        AltRiskClass,
+                        AltRiskClassJustification,
+                        Infrastructure.Text,
+                        CompleteBIAITNeeded.Text,
+                        GUID.Text,
+                        ID_input.Text);
+                     // NewForm(Form4);; NewForm(Form_1h);; NewForm(Form_4h);; NewForm(Form_24h);;NewForm(Form_72h);; NewForm(Form_7d);; NewForm(Form_14d);; NewForm(Form_30d)
+                Width: =25
+                ZIndex: =8
+
+            Rectangle4_16 As rectangle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(32, 96, 126, 1)
+                Height: =1
+                Width: =176
+                ZIndex: =9
+
+            Circle1_16 As circle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(198, 223, 231, 1)
+                Height: =25
+                OnSelect: |-
+                    =Navigate(Auswahl_Pruefer);
+                    Set(AltRiskClass, 0);
+                    Set(AltRiskClassJustification, "");
+                    If(AltRisk.Selected.Value = "", Set(AltRiskClass, 0), Set(AltRiskClass, Value(AltRisk.Selected.Value)));
+                    If(AltRisk.Selected.Value = "", Set(AltRiskClassJustification, ""), Set(AltRiskClassJustification, AltRiskJusti.Text));
+                    BIAScoreWrite.Run(
+                        Value(Score.Text),
+                        Value(Risk.Text),
+                        Result.Text,
+                        AltRiskClass,
+                        AltRiskClassJustification,
+                        Infrastructure.Text,
+                        CompleteBIAITNeeded.Text,
+                        GUID.Text,
+                        ID_input.Text);
+                     // NewForm(Form4);; NewForm(Form_1h);; NewForm(Form_4h);; NewForm(Form_24h);;NewForm(Form_72h);; NewForm(Form_7d);; NewForm(Form_14d);; NewForm(Form_30d)
+                Width: =25
+                ZIndex: =10
+
+            Rectangle4_17 As rectangle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(32, 96, 126, 1)
+                Height: =1
+                Width: =176
+                ZIndex: =11
+
+            Circle1_17 As circle:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(198, 223, 231, 1)
+                Height: =25
+                OnSelect: |-
+                    =Navigate('BIA-IT Overview');
+                    Set(AltRiskClass, 0);
+                    Set(AltRiskClassJustification, "");
+                    If(AltRisk.Selected.Value = "", Set(AltRiskClass, 0), Set(AltRiskClass, Value(AltRisk.Selected.Value)));
+                    If(AltRisk.Selected.Value = "", Set(AltRiskClassJustification, ""), Set(AltRiskClassJustification, AltRiskJusti.Text));
+                    BIAScoreWrite.Run(
+                        Value(Score.Text),
+                        Value(Risk.Text),
+                        Result.Text,
+                        AltRiskClass,
+                        AltRiskClassJustification,
+                        Infrastructure.Text,
+                        CompleteBIAITNeeded.Text,
+                        GUID.Text,
+                        ID_input.Text);
+                     // NewForm(Form4);; NewForm(Form_1h);; NewForm(Form_4h);; NewForm(Form_24h);;NewForm(Form_72h);; NewForm(Form_7d);; NewForm(Form_14d);; NewForm(Form_30d)
+                Width: =25
+                ZIndex: =12
+
+        Container17_2 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =30
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Chpt1_SB_3 As label:
+                Align: =Align.Center
+                Color: =RGBA(32, 96, 126, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                Size: =11
+                Text: ="System Beschreibung"
+                Width: =200
+                ZIndex: =1
+
+            Chpt2_IA_3 As label:
+                Align: =Align.Center
+                Color: =RGBA(32, 96, 126, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                Size: =11
+                Text: ="Impact Analysis"
+                Width: =200
+                ZIndex: =2
+
+            Chpt3_BIAITScore_3 As label:
+                Align: =Align.Center
+                Color: =RGBA(32, 96, 126, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                Size: =11
+                Text: ="BIA-IT Score"
+                Width: =200
+                ZIndex: =3
+
+            Chpt4_CompleteBIAIT_3 As label:
+                Align: =Align.Center
+                Color: =RGBA(32, 96, 126, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                Size: =11
+                Text: ="Vollständige BIA-IT"
+                Width: =200
+                ZIndex: =4
+
+            Chpt5_Pruefer_3 As label:
+                Align: =Align.Center
+                Color: =RGBA(32, 96, 126, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                Size: =11
+                Text: ="Auswahl Prüfer"
+                Width: =200
+                ZIndex: =5
+
+            Chpt6_Overview_3 As label:
+                Align: =Align.Center
+                Color: =RGBA(32, 96, 126, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                Size: =11
+                Text: ="Übersicht"
+                Width: =200
+                ZIndex: =6
+
+    Button_App_Selection_12 As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =41
+
+        Button_AppSelection_Text_12 As label:
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(32, 96, 126, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =45
+            OnSelect: |-
+                =Set(AltRiskClass, 0);
+                Set(AltRiskClassJustification, "");
+                If(AltRisk.Selected.Value = "", Set(AltRiskClass, 0), Set(AltRiskClass, Value(AltRisk.Selected.Value)));
+                If(AltRisk.Selected.Value = "", Set(AltRiskClassJustification, ""), Set(AltRiskClassJustification, AltRiskJusti.Text));
+                BIAScoreWrite.Run(
+                    Value(Score.Text),
+                    Value(Risk.Text),
+                    Result.Text,
+                    AltRiskClass,
+                    AltRiskClassJustification,
+                    Infrastructure.Text,
+                    CompleteBIAITNeeded.Text,
+                    GUID.Text,
+                    ID_input.Text);
+                 // NewForm(Form4);; NewForm(Form_1h);; NewForm(Form_4h);; NewForm(Form_24h);;NewForm(Form_72h);; NewForm(Form_7d);; NewForm(Form_14d);; NewForm(Form_30d)
+            PaddingLeft: =10
+            Text: |-
+                =If(Spracheinstellung.SelectedText.Value = "Deutsch", "Zwischenspeichern", 
+                If(Spracheinstellung.SelectedText.Value = "English", "Save Progress"))
+            Width: =253
+            X: =556
+            Y: =698
+            ZIndex: =39
+
+        Button_App_Selection_Image_12 As image:
+            Height: =45
+            Image: ='save-16'
+            OnSelect: |-
+                =Set(AltRiskClass, 0);
+                Set(AltRiskClassJustification, "");
+                If(AltRisk.Selected.Value = "", Set(AltRiskClass, 0), Set(AltRiskClass, Value(AltRisk.Selected.Value)));
+                If(AltRisk.Selected.Value = "", Set(AltRiskClassJustification, ""), Set(AltRiskClassJustification, AltRiskJusti.Text));
+                BIAScoreWrite.Run(
+                    Value(Score.Text),
+                    Value(Risk.Text),
+                    Result.Text,
+                    AltRiskClass,
+                    AltRiskClassJustification,
+                    Infrastructure.Text,
+                    CompleteBIAITNeeded.Text,
+                    GUID.Text,
+                    ID_input.Text);
+                 // NewForm(Form4);; NewForm(Form_1h);; NewForm(Form_4h);; NewForm(Form_24h);;NewForm(Form_72h);; NewForm(Form_7d);; NewForm(Form_14d);; NewForm(Form_30d)
+            PaddingBottom: =1
+            PaddingLeft: =1
+            PaddingRight: =1
+            PaddingTop: =1
+            Width: =46
+            X: =762
+            Y: =698
+            ZIndex: =40
+

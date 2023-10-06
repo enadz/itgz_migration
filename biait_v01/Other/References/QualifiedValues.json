@@ -1,0 +1,39 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_crc4f_leanix_application_lookup_forms",
+      "Namespace": "LeanIX_Application_Lookups (Formulare)",
+      "Values": {
+        "Information": "a67330c9-93e8-4d9d-b564-c6813b38d32d"
+      }
+    },
+    {
+      "Kind": "default.cds_crc4f_biait_fragen_forms",
+      "Namespace": "BIA-IT_Fragen (Formulare)",
+      "Values": {
+        "Information": "fc930a3f-5917-485d-8b21-ec7b81285fd0"
+      }
+    },
+    {
+      "Kind": "default.cds_crc4f_biait_antworten_forms",
+      "Namespace": "BIA-IT_Antworten (Formulare)",
+      "Values": {
+        "Information": "44ffaa2b-722c-43d0-ad70-dd6b3ca3ad0e"
+      }
+    },
+    {
+      "Kind": "default.cds_crc4f_healthcheck_antworten_forms",
+      "Namespace": "HealthCheck_Antworten (Formulare)",
+      "Values": {
+        "Information": "772ec7b3-1dc8-44ac-b671-bdfba1de813e"
+      }
+    },
+    {
+      "Kind": "default.cds_crc4f_healthcheck_fragen_forms",
+      "Namespace": "HealthCheck_Fragen (Formulare)",
+      "Values": {
+        "Information": "166276df-b13d-4005-afa1-66af5bc40fd2"
+      }
+    }
+  ]
+}

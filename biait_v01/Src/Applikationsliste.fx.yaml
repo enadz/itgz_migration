@@ -1,0 +1,221 @@
+Applikationsliste As screen:
+
+    "Gallery1 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+        BorderColor: =RGBA(168, 173, 179, 1)
+        BorderThickness: =1
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =511
+        Items: =Search(LeanIX_Application_Lookups, Search_Bar_Apps.Text, "crc4f_appsearchtext")
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =112
+        Width: =1282
+        X: =26
+        Y: =178
+        ZIndex: =1
+
+        Title2 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =14
+            Text: =ThisItem.crc4f_leanix_app_displayname
+            VerticalAlign: =VerticalAlign.Top
+            Width: =1079
+            X: =10
+            Y: =8
+            ZIndex: =1
+
+        Subtitle2 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: |-
+                ="LeanIX ID: " & ThisItem.crc4f_leanix_app_leanixid
+            VerticalAlign: =VerticalAlign.Top
+            Width: =1079
+            X: =10
+            Y: =35
+            ZIndex: =2
+
+        Body1 As label:
+            Height: =44
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: =ThisItem.crc4f_leanix_app_description
+            VerticalAlign: =VerticalAlign.Top
+            Width: =1079
+            X: =12
+            Y: =60
+            ZIndex: =3
+
+        Separator2 As rectangle:
+            BorderColor: =RGBA(168, 173, 179, 1)
+            Fill: =RGBA(168, 173, 179, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =4
+
+        Button_Overview_Text As label:
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(32, 96, 126, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =45
+            OnSelect: |-
+                =Select(Parent) & Navigate(Applikationsübersicht) & Set(CurrentVersion, BIAVersionCheck.Run(Gallery1.Selected.crc4f_leanix_app_leanixid)) & UpdateContext(CurrentVersion)
+                & Set(CurrentStatus, BIAStatusCheck.Run(Value(finalversion), Gallery1.Selected.crc4f_leanix_app_leanixid))
+            PaddingLeft: =10
+            Text: |-
+                =If(Spracheinstellung.SelectedText.Value = "Deutsch", "Übersicht", 
+                If(Spracheinstellung.SelectedText.Value = "English", "Overview"))
+            Width: =145
+            X: =1117
+            Y: =23
+            ZIndex: =6
+
+        Button_Overview_Image As image:
+            Height: =33
+            Image: ='arrow-right-16'
+            OnSelect: |-
+                =Select(Parent) & Navigate(Applikationsübersicht) & Set(CurrentVersion, BIAVersionCheck.Run(Gallery1.Selected.crc4f_leanix_app_leanixid)) & UpdateContext(CurrentVersion)
+                & Set(CurrentStatus, BIAStatusCheck.Run(Value(finalversion), Gallery1.Selected.crc4f_leanix_app_leanixid))
+            Width: =43
+            X: =1219
+            Y: =29
+            ZIndex: =7
+
+    Header_Overview As label:
+        FontWeight: =FontWeight.Bold
+        Height: =56
+        PaddingLeft: =25
+        Size: =16
+        Text: |
+            =If(Spracheinstellung.SelectedText.Value = "Deutsch", "Übersicht über die Applikationen", 
+            If(Spracheinstellung.SelectedText.Value = "English", "Overview of the applications"))
+        Width: =1366
+        Y: =75
+        ZIndex: =6
+
+    Header_Group_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =20
+        ZIndex: =12
+
+        Header_Rectangle_1 As rectangle:
+            Fill: =RGBA(0, 53, 77, 1)
+            Height: =75
+            Width: =1366
+            ZIndex: =7
+
+        "'BIA-IT_Titel_1' As label":
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =52
+            Size: =18
+            Text: ="BIA-IT Applikation"
+            Width: =262
+            X: =26
+            Y: =10
+            ZIndex: =8
+
+        Nutzer_Name_1 As label:
+            Align: =Align.Right
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =52
+            Size: =15
+            Text: =User().FullName
+            Width: =262
+            X: =1034
+            Y: =13
+            ZIndex: =9
+
+        Nutzer_Icon_1 As image:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Height: =56
+            Image: ='user-filled-48 (3)'
+            Width: =50
+            X: =1302
+            Y: =9
+            ZIndex: =10
+
+        Confidential_1 As image:
+            Height: =75
+            Image: ='confidential-confidential-l-darkmode'
+            Width: =121
+            X: =622
+            ZIndex: =11
+
+    Button_App_Selection_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =15
+
+        Button_AppSelection_Text_1 As label:
+            BorderColor: =RGBA(32, 96, 126, 1)
+            BorderThickness: =1
+            Color: =RGBA(32, 96, 126, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =45
+            OnSelect: =Navigate(Applikationsliste, ScreenTransition.Cover)
+            PaddingLeft: =55
+            Text: |-
+                =If(Spracheinstellung.SelectedText.Value = "Deutsch", "Zu den Applikationen", 
+                If(Spracheinstellung.SelectedText.Value = "English", "To the applications"))
+            Width: =253
+            X: =26
+            Y: =704
+            ZIndex: =13
+
+        Button_App_Selection_Image_1 As image:
+            Height: =45
+            Image: ='arrow-left-16'
+            OnSelect: =Navigate(Applikationsliste, ScreenTransition.Cover)
+            Width: =46
+            X: =28
+            Y: =704
+            ZIndex: =14
+
+    Search_Bar As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =15
+
+        Search_Bar_Apps As text:
+            BorderColor: =RGBA(32, 96, 126, 1)
+            BorderThickness: =1
+            Default: =""
+            Height: =34
+            Width: =1284
+            X: =24
+            Y: =131
+            ZIndex: =4
+
+        Search_Image As image:
+            Height: =34
+            Image: ='search-24'
+            PaddingTop: =2
+            Width: =51
+            X: =1257
+            Y: =131
+            ZIndex: =12
+

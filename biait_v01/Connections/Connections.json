@@ -1,0 +1,362 @@
+{
+  "14805cf9-8919-483e-94b6-f25ba16c9a40": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logik-Flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "3b57a741-9bad-4cbb-b423-d19c3fff9304": {
+          "value": "shared_commondataserviceforapps"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "4fe5c4ce-071d-4ad2-96f4-025640e986f3"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_commondataserviceforapps": {
+          "value": "3b57a741-9bad-4cbb-b423-d19c3fff9304"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "4fe5c4ce-071d-4ad2-96f4-025640e986f3"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "BIACreateRecord"
+    ],
+    "dependencies": {
+      "shared_commondataserviceforapps": "3b57a741-9bad-4cbb-b423-d19c3fff9304"
+    },
+    "dependents": [],
+    "id": "14805cf9-8919-483e-94b6-f25ba16c9a40"
+  },
+  "17905247-607c-4a0a-8404-a3da5c3b464c": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logik-Flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "3b57a741-9bad-4cbb-b423-d19c3fff9304": {
+          "value": "shared_commondataserviceforapps"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "8bcd4d6f-6708-4d0c-8948-e90ae0cca768"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_commondataserviceforapps": {
+          "value": "3b57a741-9bad-4cbb-b423-d19c3fff9304"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "8bcd4d6f-6708-4d0c-8948-e90ae0cca768"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "BIAScoreWrite"
+    ],
+    "dependencies": {
+      "shared_commondataserviceforapps": "3b57a741-9bad-4cbb-b423-d19c3fff9304"
+    },
+    "dependents": [],
+    "id": "17905247-607c-4a0a-8404-a3da5c3b464c"
+  },
+  "275679d1-cc23-41a2-84df-8bd838618026": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/henryorsborn/partial-builds/asev3migrations-with-resourceTemplate/1.0.1653.3414/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://volkswagengroup-my.sharepoint.com/personal/extern_georgy_charkseliani_volkswagen_de": {
+        "dataSources": {
+          "Vertreter_IT_Fachbereich_OMK": {
+            "tableName": "2695eece-51ea-42b5-a2fb-ab0248364bab"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Vertreter_IT_Fachbereich_OMK"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "dd49286c-2511-49ca-a6e9-685eaecddd4a",
+      "46eb32b9-5e53-47b2-afbb-ba22bb5220cc"
+    ],
+    "id": "275679d1-cc23-41a2-84df-8bd838618026"
+  },
+  "3b57a741-9bad-4cbb-b423-d19c3fff9304": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Premium",
+      "bypassConsent": true,
+      "displayName": "Microsoft Dataverse",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1651/1.0.1651.3382/commondataserviceforapps/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_commondataserviceforapps",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "c2a2e621-6ec6-4122-a465-705a941a4c93",
+      "c8a2fa82-7e8d-4e14-a61f-6c6d0eb534f4",
+      "4f49ee20-db27-4d52-9851-bae50393a3ac",
+      "14805cf9-8919-483e-94b6-f25ba16c9a40",
+      "17905247-607c-4a0a-8404-a3da5c3b464c",
+      "c7b97cac-0e5c-4c0a-926c-a188f5e37fae"
+    ],
+    "id": "3b57a741-9bad-4cbb-b423-d19c3fff9304"
+  },
+  "46eb32b9-5e53-47b2-afbb-ba22bb5220cc": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logik-Flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "275679d1-cc23-41a2-84df-8bd838618026": {
+          "value": "shared_sharepointonline"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "cbf5126f-d305-46ee-abaa-e6edbc0242da"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sharepointonline": {
+          "value": "275679d1-cc23-41a2-84df-8bd838618026"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "cbf5126f-d305-46ee-abaa-e6edbc0242da"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "BIAVertreterFetch"
+    ],
+    "dependencies": {
+      "shared_sharepointonline": "275679d1-cc23-41a2-84df-8bd838618026"
+    },
+    "dependents": [],
+    "id": "46eb32b9-5e53-47b2-afbb-ba22bb5220cc"
+  },
+  "4f49ee20-db27-4d52-9851-bae50393a3ac": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logik-Flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "3b57a741-9bad-4cbb-b423-d19c3fff9304": {
+          "value": "shared_commondataserviceforapps"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "8b5de19d-bd75-42b9-83d3-5d86e56204f5"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_commondataserviceforapps": {
+          "value": "3b57a741-9bad-4cbb-b423-d19c3fff9304"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "8b5de19d-bd75-42b9-83d3-5d86e56204f5"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "BIACompleteRecord"
+    ],
+    "dependencies": {
+      "shared_commondataserviceforapps": "3b57a741-9bad-4cbb-b423-d19c3fff9304"
+    },
+    "dependents": [],
+    "id": "4f49ee20-db27-4d52-9851-bae50393a3ac"
+  },
+  "c2a2e621-6ec6-4122-a465-705a941a4c93": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logik-Flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "3b57a741-9bad-4cbb-b423-d19c3fff9304": {
+          "value": "shared_commondataserviceforapps"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "395845f0-6184-4225-b2a3-d9109327e723"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_commondataserviceforapps": {
+          "value": "3b57a741-9bad-4cbb-b423-d19c3fff9304"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "395845f0-6184-4225-b2a3-d9109327e723"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "BIAVersionCheck"
+    ],
+    "dependencies": {
+      "shared_commondataserviceforapps": "3b57a741-9bad-4cbb-b423-d19c3fff9304"
+    },
+    "dependents": [],
+    "id": "c2a2e621-6ec6-4122-a465-705a941a4c93"
+  },
+  "c7b97cac-0e5c-4c0a-926c-a188f5e37fae": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logik-Flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "3b57a741-9bad-4cbb-b423-d19c3fff9304": {
+          "value": "shared_commondataserviceforapps"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "8b21f4d7-3154-4c10-b40c-38f4059c85c1"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_commondataserviceforapps": {
+          "value": "3b57a741-9bad-4cbb-b423-d19c3fff9304"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "8b21f4d7-3154-4c10-b40c-38f4059c85c1"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "BIAVertreterWrite"
+    ],
+    "dependencies": {
+      "shared_commondataserviceforapps": "3b57a741-9bad-4cbb-b423-d19c3fff9304"
+    },
+    "dependents": [],
+    "id": "c7b97cac-0e5c-4c0a-926c-a188f5e37fae"
+  },
+  "c8a2fa82-7e8d-4e14-a61f-6c6d0eb534f4": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logik-Flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "3b57a741-9bad-4cbb-b423-d19c3fff9304": {
+          "value": "shared_commondataserviceforapps"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "f1217586-4750-4ead-839d-bc21fee27712"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_commondataserviceforapps": {
+          "value": "3b57a741-9bad-4cbb-b423-d19c3fff9304"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "f1217586-4750-4ead-839d-bc21fee27712"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "BIAStatusCheck"
+    ],
+    "dependencies": {
+      "shared_commondataserviceforapps": "3b57a741-9bad-4cbb-b423-d19c3fff9304"
+    },
+    "dependents": [],
+    "id": "c8a2fa82-7e8d-4e14-a61f-6c6d0eb534f4"
+  },
+  "dd49286c-2511-49ca-a6e9-685eaecddd4a": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logik-Flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "275679d1-cc23-41a2-84df-8bd838618026": {
+          "value": "shared_sharepointonline"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "1401e292-b333-46ee-b4be-2056106ecde2"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sharepointonline": {
+          "value": "275679d1-cc23-41a2-84df-8bd838618026"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "1401e292-b333-46ee-b4be-2056106ecde2"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "BIAVertreterCreate"
+    ],
+    "dependencies": {
+      "shared_sharepointonline": "275679d1-cc23-41a2-84df-8bd838618026"
+    },
+    "dependents": [],
+    "id": "dd49286c-2511-49ca-a6e9-685eaecddd4a"
+  }
+}

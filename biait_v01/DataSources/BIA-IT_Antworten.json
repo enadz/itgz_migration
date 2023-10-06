@@ -1,0 +1,568 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "crc4f_biait_antwortens",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "crc4f_biait_antworten",
+    "MaxGetRowsCount": 500,
+    "Name": "BIA-IT_Antworten",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "crc4f_altriskclass": "AltRiskClass",
+      "crc4f_altriskclassjustification": "AltRiskClassJustification",
+      "crc4f_applikation_name": "Applikation_Name",
+      "crc4f_biait_antworten_AsyncOperations": "System Jobs",
+      "crc4f_biait_antworten_BulkDeleteFailures": "Bulk Delete Failures",
+      "crc4f_biait_antworten_DuplicateBaseRecord": "Duplicate Records (crc4f_biait_antworten_DuplicateBaseRecord)",
+      "crc4f_biait_antworten_DuplicateMatchingRecord": "Duplicate Records (crc4f_biait_antworten_DuplicateMatchingRecord)",
+      "crc4f_biait_antworten_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "crc4f_biait_antworten_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "crc4f_biait_antworten_ProcessSession": "Process Sessions",
+      "crc4f_biait_antworten_SyncErrors": "Sync Errors",
+      "crc4f_biait_antwortenid": "BIA-IT_Antworten",
+      "crc4f_completebiaitneeded": "CompleteBIAITNeeded",
+      "crc4f_evaluationstatus": "EvaluationStatus",
+      "crc4f_evaluationversion": "EvaluationVersion",
+      "crc4f_evaluatoremail": "EvaluatorEmail",
+      "crc4f_evaluatorname": "EvaluatorName",
+      "crc4f_fachbereich": "Fachbereich",
+      "crc4f_fachbereich_omk": "Fachbereich_OMK",
+      "crc4f_ia_1": "IA_1",
+      "crc4f_ia_2": "IA_2",
+      "crc4f_ia_3": "IA_3",
+      "crc4f_ia_4": "IA_4",
+      "crc4f_infrastracturerecommendation": "InfrastractureRecommendation",
+      "crc4f_itscm_coordinator": "ITSCM_coordinator",
+      "crc4f_name": "LeanIX_ID",
+      "crc4f_resultbiait": "ResultBIAIT",
+      "crc4f_riskclass": "RiskClass",
+      "crc4f_sb_3": "SB_3",
+      "crc4f_sb_5": "SB_5",
+      "crc4f_sb_6": "SB_6",
+      "crc4f_sb_7": "SB_7",
+      "crc4f_scorebiait": "ScoreBIAIT",
+      "crc4f_vb_1_1": "VB_1_1",
+      "crc4f_vb_1_2": "VB_1_2",
+      "crc4f_vb_1_3": "VB_1_3",
+      "crc4f_vb_1_4": "VB_1_4",
+      "crc4f_vb_1_5": "VB_1_5",
+      "crc4f_vb_1_6": "VB_1_6",
+      "crc4f_vb_1_7": "VB_1_7",
+      "crc4f_vb_2_1": "VB_2_1",
+      "crc4f_vb_2_2": "VB_2_2",
+      "crc4f_vb_2_3": "VB_2_3",
+      "crc4f_vb_2_4": "VB_2_4",
+      "crc4f_vb_2_5": "VB_2_5",
+      "crc4f_vb_2_6": "VB_2_6",
+      "crc4f_vb_2_7": "VB_2_7",
+      "crc4f_vb_3_1": "VB_3_1",
+      "crc4f_vb_3_2": "VB_3_2",
+      "crc4f_vb_3_3": "VB_3_3",
+      "crc4f_vb_3_4": "VB_3_4",
+      "crc4f_vb_3_5": "VB_3_5",
+      "crc4f_vb_3_6": "VB_3_6",
+      "crc4f_vb_3_7": "VB_3_7",
+      "crc4f_vb_6": "VB_6",
+      "crc4f_vb_7": "VB_7",
+      "crc4f_vertreter_it": "Vertreter_IT",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BIA-IT_Antworten",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BIA-IT_Antworten (Ansichten)",
+    "Name": "_crc4f_biait_antworten_views",
+    "RelatedEntityName": "BIA-IT_Antworten",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "8071b471-b567-4753-ab08-6f85280bba18": "Active BIA-IT_Antworten",
+      "c43b29ac-48c3-419f-a1cc-a0ca40053fd8": "Inactive BIA-IT_Antworten",
+      "c565cec7-ccdb-4ce9-b182-b339420a2f36": "BIA-IT_Antworten Advanced Find View",
+      "cec64761-5e43-4905-bb2b-dd7179d1b472": "BIA-IT_Antworten Lookup View",
+      "d29608f3-ef39-411b-9cf1-de9ddc3035fc": "BIA-IT_Antworten Associated View"
+    }
+  },
+  {
+    "DisplayName": "EvaluationStatus (BIA-IT_Antworten)",
+    "Name": "crc4f_biait_antworten_crc4f_evaluationstatus",
+    "OptionSetInfoNameMapping": {
+      "0": "Ongoing",
+      "1": "Completed"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "crc4f_evaluationstatus",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "crc4f_evaluationstatus",
+    "RelatedEntityName": "BIA-IT_Antworten",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "IA_1 (BIA-IT_Antworten)",
+    "Name": "crc4f_biait_antworten_crc4f_ia_1",
+    "OptionSetInfoNameMapping": {
+      "1": "0 - 10 k€",
+      "10": "5 - 10 m€",
+      "11": "10 - 25 m€",
+      "12": "25 - 50 m€",
+      "13": "> 50 m€",
+      "2": "10 - 25 k€",
+      "3": "25 - 50 k€",
+      "4": "50 - 100 k€",
+      "5": "100 - 250 k€",
+      "6": "250 - 500 k€",
+      "7": "500 - 1000 k€",
+      "8": "1 - 2,5 m€",
+      "9": "2,5 - 5 m€"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "crc4f_ia_1",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "crc4f_ia_1",
+    "RelatedEntityName": "BIA-IT_Antworten",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "IA_2 (BIA-IT_Antworten)",
+    "Name": "crc4f_biait_antworten_crc4f_ia_2",
+    "OptionSetInfoNameMapping": {
+      "1": "no impact",
+      "2": "minor impact",
+      "3": "local impact",
+      "4": "substantial impact",
+      "5": "critical impact"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "crc4f_ia_2",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "crc4f_ia_2",
+    "RelatedEntityName": "BIA-IT_Antworten",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "IA_3 (BIA-IT_Antworten)",
+    "Name": "crc4f_biait_antworten_crc4f_ia_3",
+    "OptionSetInfoNameMapping": {
+      "1": "not relevant",
+      "2": "minor impact",
+      "3": "normal impact",
+      "4": "substantial impact",
+      "5": "critical impact"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "crc4f_ia_3",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "crc4f_ia_3",
+    "RelatedEntityName": "BIA-IT_Antworten",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "IA_4 (BIA-IT_Antworten)",
+    "Name": "crc4f_biait_antworten_crc4f_ia_4",
+    "OptionSetInfoNameMapping": {
+      "1": "> 30 days",
+      "2": "< 30 days",
+      "3": "< 14 days",
+      "4": "< 7 days",
+      "5": "< 72 h",
+      "6": "< 24 h",
+      "7": "< 4 h",
+      "8": "< 1 h"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "crc4f_ia_4",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "crc4f_ia_4",
+    "RelatedEntityName": "BIA-IT_Antworten",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "SB_3 (BIA-IT_Antworten)",
+    "Name": "crc4f_biait_antworten_crc4f_sb_3",
+    "OptionSetInfoNameMapping": {
+      "1": "Business Support",
+      "2": "Finance and Controlling",
+      "3": "Human Resources",
+      "4": "IT",
+      "5": "Production",
+      "6": "Purchasing",
+      "7": "Quality Management",
+      "8": "R&D and Product Management",
+      "9": "Sales and Marketing"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "crc4f_sb_3",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "crc4f_sb_3",
+    "RelatedEntityName": "BIA-IT_Antworten",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "SB_6 (BIA-IT_Antworten)",
+    "Name": "crc4f_biait_antworten_crc4f_sb_6",
+    "OptionSetInfoNameMapping": {
+      "1": "> 30 days",
+      "2": "< 30 days",
+      "3": "< 14 days",
+      "4": "< 7 days",
+      "5": "< 72 h",
+      "6": "< 24 h",
+      "7": "< 4 h",
+      "8": "< 1 h"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "crc4f_sb_6",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "crc4f_sb_6",
+    "RelatedEntityName": "BIA-IT_Antworten",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "SB_7 (BIA-IT_Antworten)",
+    "Name": "crc4f_biait_antworten_crc4f_sb_7",
+    "OptionSetInfoNameMapping": {
+      "1": "> 30 days",
+      "2": "< 30 days",
+      "3": "< 14 days",
+      "4": "< 7 days",
+      "5": "< 72 h",
+      "6": "< 24 h",
+      "7": "< 4 h",
+      "8": "< 1 h"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "crc4f_sb_7",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "crc4f_sb_7",
+    "RelatedEntityName": "BIA-IT_Antworten",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "VB_6 (BIA-IT_Antworten)",
+    "Name": "crc4f_biait_antworten_crc4f_vb_6",
+    "OptionSetInfoNameMapping": {
+      "1": "Nein",
+      "2": "Nein, wird aber noch erstellt",
+      "3": "Ja, ist vorhanden"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "crc4f_vb_6",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "crc4f_vb_6",
+    "RelatedEntityName": "BIA-IT_Antworten",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "VB_7 (BIA-IT_Antworten)",
+    "Name": "crc4f_biait_antworten_crc4f_vb_7",
+    "OptionSetInfoNameMapping": {
+      "1": "Nein",
+      "2": "Nein, wird aber noch eingetragen",
+      "3": "Ja"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "crc4f_vb_7",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "crc4f_vb_7",
+    "RelatedEntityName": "BIA-IT_Antworten",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (BIA-IT_Antworten)",
+    "Name": "crc4f_biait_antworten_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BIA-IT_Antworten",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BIA-IT_Antworten)",
+    "Name": "crc4f_biait_antworten_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BIA-IT_Antworten",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Money Option 1",
+    "Name": "crc4f_moneyoption1",
+    "OptionSetInfoNameMapping": {
+      "0": "0 - 10 k€",
+      "1": "10 - 25 k€",
+      "10": "10 - 25 mn€",
+      "11": "25 - 50 mn€",
+      "12": "> 50 mn€",
+      "2": "25 - 50 k€",
+      "3": "50 - 100 k€",
+      "4": "100 - 250 k€",
+      "5": "250 - 500 k€",
+      "6": "500 - 1000 k€",
+      "7": "1 - 2,5 mn€",
+      "8": "2,5 - 5 mn€",
+      "9": "5 - 10 mn€"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "crc4f_vb_1_1",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "crc4f_vb_1_2",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      },
+      "OptionSetReferenceItem2": {
+        "OptionSetReferenceColumnName": "crc4f_vb_1_3",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "crc4f_vb_1_1",
+    "RelatedEntityName": "BIA-IT_Antworten",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Money Option 2",
+    "Name": "crc4f_moneyoption2",
+    "OptionSetInfoNameMapping": {
+      "226010000": "0 - 10 k€",
+      "226010001": "10 - 25 k€",
+      "226010002": "25 - 50 k€",
+      "226010003": "50 - 100 k€",
+      "226010004": "100 - 250 k€",
+      "226010005": "250 - 500 k€",
+      "226010006": "500 - 1.000 k€",
+      "226010007": "1 - 2,5 mn€",
+      "226010008": "2,5 - 5 mn€",
+      "226010009": "5 - 10 mn€",
+      "226010010": "10 - 25 mn€",
+      "226010011": "25 - 50 mn€",
+      "226010012": "50 - 100 mn€",
+      "226010013": "100 - 250 mn€",
+      "226010014": "250 - 500 mn€",
+      "226010015": "500 - 1.000 mn€",
+      "226010016": "> 1.000 mn€"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "crc4f_vb_1_4",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "crc4f_vb_1_5",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      },
+      "OptionSetReferenceItem2": {
+        "OptionSetReferenceColumnName": "crc4f_vb_1_6",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      },
+      "OptionSetReferenceItem3": {
+        "OptionSetReferenceColumnName": "crc4f_vb_1_7",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "crc4f_vb_1_4",
+    "RelatedEntityName": "BIA-IT_Antworten",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Rechtliche Auswirkung",
+    "Name": "crc4f_rechtlicheauswirkung",
+    "OptionSetInfoNameMapping": {
+      "0": "not relevant",
+      "1": "minor impact",
+      "2": "normal impact",
+      "3": "substantial impact",
+      "4": "critical impact"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "crc4f_vb_3_1",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "crc4f_vb_3_2",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      },
+      "OptionSetReferenceItem2": {
+        "OptionSetReferenceColumnName": "crc4f_vb_3_3",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      },
+      "OptionSetReferenceItem3": {
+        "OptionSetReferenceColumnName": "crc4f_vb_3_4",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      },
+      "OptionSetReferenceItem4": {
+        "OptionSetReferenceColumnName": "crc4f_vb_3_5",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      },
+      "OptionSetReferenceItem5": {
+        "OptionSetReferenceColumnName": "crc4f_vb_3_6",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      },
+      "OptionSetReferenceItem6": {
+        "OptionSetReferenceColumnName": "crc4f_vb_3_7",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "crc4f_vb_3_1",
+    "RelatedEntityName": "BIA-IT_Antworten",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Reputationsschaden",
+    "Name": "crc4f_reputationsschaden",
+    "OptionSetInfoNameMapping": {
+      "0": "no impact",
+      "1": "minor impact",
+      "2": "local impact",
+      "3": "substantial impact",
+      "4": "critical impact"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "crc4f_vb_2_1",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "crc4f_vb_2_2",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      },
+      "OptionSetReferenceItem2": {
+        "OptionSetReferenceColumnName": "crc4f_vb_2_3",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      },
+      "OptionSetReferenceItem3": {
+        "OptionSetReferenceColumnName": "crc4f_vb_2_4",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      },
+      "OptionSetReferenceItem4": {
+        "OptionSetReferenceColumnName": "crc4f_vb_2_5",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      },
+      "OptionSetReferenceItem5": {
+        "OptionSetReferenceColumnName": "crc4f_vb_2_6",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      },
+      "OptionSetReferenceItem6": {
+        "OptionSetReferenceColumnName": "crc4f_vb_2_7",
+        "OptionSetReferenceEntityName": "BIA-IT_Antworten"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "crc4f_vb_2_1",
+    "RelatedEntityName": "BIA-IT_Antworten",
+    "Type": "OptionSetInfo"
+  }
+]

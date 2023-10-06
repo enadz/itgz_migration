@@ -1,0 +1,101 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "crc4f_biait_fragens",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "crc4f_biait_fragen",
+    "MaxGetRowsCount": 500,
+    "Name": "BIA-IT_Fragen",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "crc4f_bia_it_score": "BIA_IT_Score",
+      "crc4f_biait_fragen_AsyncOperations": "System Jobs",
+      "crc4f_biait_fragen_BulkDeleteFailures": "Bulk Delete Failures",
+      "crc4f_biait_fragen_DuplicateBaseRecord": "Duplicate Records (crc4f_biait_fragen_DuplicateBaseRecord)",
+      "crc4f_biait_fragen_DuplicateMatchingRecord": "Duplicate Records (crc4f_biait_fragen_DuplicateMatchingRecord)",
+      "crc4f_biait_fragen_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "crc4f_biait_fragen_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "crc4f_biait_fragen_ProcessSession": "Process Sessions",
+      "crc4f_biait_fragen_SyncErrors": "Sync Errors",
+      "crc4f_biait_fragenid": "BIA-IT_Fragen",
+      "crc4f_frage": "Frage",
+      "crc4f_name": "Frage_ID",
+      "crc4f_sprache": "Sprache",
+      "crc4f_text": "Text",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "BIA-IT_Fragen",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "BIA-IT_Fragen (Ansichten)",
+    "Name": "_crc4f_biait_fragen_views",
+    "RelatedEntityName": "BIA-IT_Fragen",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "1fd2a6cc-84be-4418-8640-d4203212eb08": "Active BIA-IT_Fragen",
+      "30a754f5-b18d-4f69-96bc-bf42d56eeed5": "BIA-IT_Fragen Advanced Find View",
+      "8116c0a8-81f7-4e04-8340-eceb605dd9f7": "BIA-IT_Fragen Lookup View",
+      "a1a386c0-ab23-4ddd-9f11-528b73628d5e": "BIA-IT_Fragen Associated View",
+      "ffeaaed1-7454-4f4a-b140-dece58c08d13": "Inactive BIA-IT_Fragen"
+    }
+  },
+  {
+    "DisplayName": "Status (BIA-IT_Fragen)",
+    "Name": "crc4f_biait_fragen_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "BIA-IT_Fragen"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "BIA-IT_Fragen",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (BIA-IT_Fragen)",
+    "Name": "crc4f_biait_fragen_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "BIA-IT_Fragen"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "BIA-IT_Fragen",
+    "Type": "OptionSetInfo"
+  }
+]

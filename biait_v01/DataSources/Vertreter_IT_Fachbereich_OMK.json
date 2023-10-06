@@ -1,0 +1,53 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2023-04-04T16:27:21.2940000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "{Attachments}": "Anlagen",
+      "{Attachments}@odata.type": "{Attachments} ({Attachments}@odata.type)",
+      "{FilenameWithExtension}": "Dateiname mit Erweiterung",
+      "{FullPath}": "Vollständiger Pfad",
+      "{HasAttachments}": "Hat Anlagen",
+      "{Identifier}": "Bezeichner",
+      "{IsFolder}": "IstOrdner",
+      "{Link}": "Link zu Element",
+      "{ModerationComment}": "Die der Inhaltsgenehmigung dieses Listenelements zugeordnete Kommentare.",
+      "{ModerationStatus}": "Inhaltsgenehmigungsstatus",
+      "{Name}": "Name",
+      "{Path}": "Ordnerpfad",
+      "{Thumbnail}": "Thumbnail",
+      "{TriggerWindowEndToken}": "Token für Ende des Zeitfensters auslösen",
+      "{TriggerWindowStartToken}": "Token für Start des Zeitfensters auslösen",
+      "{VersionNumber}": "Versionsnummer",
+      "Author": "Erstellt von",
+      "Author#Claims": "Erstellt von Claims",
+      "ComplianceAssetId": "Complianceobjekt-ID",
+      "Created": "Erstellt",
+      "Editor": "Geändert von",
+      "Editor#Claims": "Geändert von Claims",
+      "EvaluationVersion": "EvaluationVersion",
+      "Fachbereich_OMK": "Fachbereich_OMK",
+      "Fachbereich_OMK#Claims": "Fachbereich_OMK Claims",
+      "ID": "ID",
+      "ITSCM_coordinator": "ITSCM_coordinator",
+      "ITSCM_coordinator#Claims": "ITSCM_coordinator Claims",
+      "Modified": "Geändert",
+      "OData__ColorTag": "Farbkennzeichnung",
+      "Title": "LeanIX_ID",
+      "Vertreter_Fachbereich": "Fachbereich",
+      "Vertreter_Fachbereich#Claims": "Fachbereich Claims",
+      "Vertreter_IT": "Vertreter_IT",
+      "Vertreter_IT#Claims": "Vertreter_IT Claims"
+    },
+    "DatasetName": "https://volkswagengroup-my.sharepoint.com/personal/extern_georgy_charkseliani_volkswagen_de",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "Vertreter_IT_Fachbereich_OMK",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

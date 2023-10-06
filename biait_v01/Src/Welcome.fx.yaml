@@ -1,0 +1,134 @@
+Welcome As screen:
+
+    Image2 As image:
+        Height: =768
+        Image: =Concept_Car_VW3
+        ImagePosition: =ImagePosition.Fill
+        Width: =1366
+        ZIndex: =1
+
+    Rectangle2 As rectangle:
+        Fill: =RGBA(255, 255, 255, 0.8)
+        Height: =282
+        Width: =741
+        X: =26
+        Y: =125
+        ZIndex: =3
+
+    Begruessung As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =84
+        LineHeight: =2
+        Size: =14
+        Text: |-
+            ="Hallo " & User().FullName & ",
+            herzlich Willkommen in der BIA-IT App!"
+        Width: =403
+        X: =50
+        Y: =155
+        ZIndex: =4
+
+    Spracheinstellung As dropdown:
+        BorderColor: =RGBA(0, 53, 77, 1)
+        BorderThickness: =1
+        ChevronBackground: =RGBA(255, 255, 255, 1)
+        ChevronFill: =RGBA(32, 96, 126, 1)
+        Default: ="Deutsch"
+        Height: =30
+        Items: =["Deutsch", "English"]
+        Width: =196
+        X: =50
+        Y: =324
+        ZIndex: =5
+
+    Begruessung_1 As label:
+        Height: =31
+        LineHeight: =2
+        Text: ="Sprache/Language"
+        Width: =170
+        X: =50
+        Y: =293
+        ZIndex: =12
+
+    Header_Group As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =13
+
+        Header_Rectangle As rectangle:
+            Fill: =RGBA(0, 53, 77, 1)
+            Height: =75
+            Width: =1366
+            ZIndex: =2
+
+        "'BIA-IT_Titel' As label":
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =52
+            Size: =18
+            Text: ="BIA-IT Applikation"
+            Width: =262
+            X: =26
+            Y: =10
+            ZIndex: =6
+
+        Nutzer_Name As label:
+            Align: =Align.Right
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =52
+            Size: =15
+            Text: =User().FullName
+            Width: =262
+            X: =1034
+            Y: =13
+            ZIndex: =7
+
+        Nutzer_Icon As image:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Height: =56
+            Image: ='user-filled-48 (3)'
+            Width: =50
+            X: =1302
+            Y: =9
+            ZIndex: =8
+
+        Confidential As image:
+            Height: =75
+            Image: ='confidential-confidential-l-darkmode'
+            Width: =121
+            X: =622
+            ZIndex: =9
+
+    Button_App_Selection As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =15
+
+        Button_AppSelection_Text As label:
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(32, 96, 126, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =45
+            OnSelect: =Navigate(Applikationsliste, ScreenTransition.Cover)
+            PaddingLeft: =10
+            Text: |-
+                =If(Spracheinstellung.SelectedText.Value = "Deutsch", "Zu den Applikationen", 
+                If(Spracheinstellung.SelectedText.Value = "English", "To the applications"))
+            Width: =253
+            X: =489
+            Y: =316
+            ZIndex: =10
+
+        Button_App_Selection_Image As image:
+            Height: =45
+            Image: ='arrow-right-16'
+            OnSelect: =Navigate(Applikationsliste, ScreenTransition.Cover)
+            Width: =46
+            X: =695
+            Y: =316
+            ZIndex: =11
+

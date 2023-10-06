@@ -1,0 +1,109 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "crc4f_leanix_application_lookups",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "crc4f_leanix_application_lookup",
+    "MaxGetRowsCount": 500,
+    "Name": "LeanIX_Application_Lookups",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "crc4f_appsearchtext": "AppSearchText",
+      "crc4f_leanix_app_active": "crc4f_leanix_app_active",
+      "crc4f_leanix_app_alias": "crc4f_leanix_app_alias",
+      "crc4f_leanix_app_appidlegacy": "crc4f_leanix_app_appidlegacy",
+      "crc4f_leanix_app_description": "crc4f_leanix_app_description",
+      "crc4f_leanix_app_displayname": "crc4f_leanix_app_displayname",
+      "crc4f_leanix_app_endoflife": "crc4f_leanix_app_endoflife",
+      "crc4f_leanix_app_ictoidlegacy": "crc4f_leanix_app_ictoidlegacy",
+      "crc4f_leanix_app_id": "crc4f_leanix_app_id",
+      "crc4f_leanix_app_leanixid": "crc4f_leanix_app_leanixid",
+      "crc4f_leanix_app_phasein": "crc4f_leanix_app_phasein",
+      "crc4f_leanix_app_phaseout": "crc4f_leanix_app_phaseout",
+      "crc4f_leanix_app_plan": "crc4f_leanix_app_plan",
+      "crc4f_leanix_app_responsible_persons": "leanix_app_responsible_persons",
+      "crc4f_leanix_app_tags": "leanix_app_tags",
+      "crc4f_leanix_application_lookup_AsyncOperations": "System Jobs",
+      "crc4f_leanix_application_lookup_BulkDeleteFailures": "Bulk Delete Failures",
+      "crc4f_leanix_application_lookup_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "crc4f_leanix_application_lookup_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "crc4f_leanix_application_lookup_ProcessSession": "Process Sessions",
+      "crc4f_leanix_application_lookup_SyncErrors": "Sync Errors",
+      "crc4f_leanix_application_lookupid": "LeanIX_Application_Lookup",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "LeanIX_Application_Lookups",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "LeanIX_Application_Lookups (Ansichten)",
+    "Name": "_crc4f_leanix_application_lookup_views",
+    "RelatedEntityName": "LeanIX_Application_Lookups",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "3216d2f3-750e-4600-b042-512feba09648": "Inactive LeanIX_Application_Lookups",
+      "3ef70dc0-0cb7-4503-8ce0-0f9a159d6a1f": "LeanIX_Application_Lookup Advanced Find View",
+      "5d773819-9e4f-48c1-9094-0226acfc6cdb": "Active LeanIX_Application_Lookups",
+      "86630f27-ced2-4d0a-b00f-b6e11b68e8d5": "LeanIX_Application_Lookup Lookup View",
+      "f186a477-e198-4340-861e-37d355d37a15": "LeanIX_Application_Lookup Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (LeanIX_Application_Lookups)",
+    "Name": "crc4f_leanix_application_lookup_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "LeanIX_Application_Lookups"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "LeanIX_Application_Lookups",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (LeanIX_Application_Lookups)",
+    "Name": "crc4f_leanix_application_lookup_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "LeanIX_Application_Lookups"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "LeanIX_Application_Lookups",
+    "Type": "OptionSetInfo"
+  }
+]
